@@ -1,8 +1,8 @@
 public class Main {
-
     public static void main(String[] args) {
-        System.out.println("Insert game intro");
+        System.out.println("Game intro added here.");
     }
+
 }
 
 
