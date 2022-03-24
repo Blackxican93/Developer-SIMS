@@ -3,7 +3,6 @@ import java.util.Scanner;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.Iterator;
 import org.json.simple.JSONObject;
 import org.json.simple.JSONArray;
 import org.json.simple.parser.JSONParser;
@@ -33,6 +32,14 @@ public class InterviewQuestions {
             System.out.println("C: " + C1);
             System.out.println("D: " + D1);
 
+            Scanner myObj = new Scanner(System.in);
+            String answer;
+
+            System.out.println("Enter A, B, C, or D ");
+            answer = myObj.nextLine();
+
+            System.out.println("You've entered: " + answer);
+
             String Q2 = (String) question.get("Q2");
             String A2 = (String) question.get("A2");
             String B2 = (String) question.get("B2");
@@ -43,6 +50,11 @@ public class InterviewQuestions {
             System.out.println("B: " + B2);
             System.out.println("C: " + C2);
             System.out.println("D: " + D2);
+
+            System.out.println("Enter A, B, C, or D ");
+            answer = myObj.nextLine();
+
+            System.out.println("You've entered: " + answer);
 
             String Q3 = (String) question.get("Q3");
             String A3 = (String) question.get("A3");
@@ -55,6 +67,11 @@ public class InterviewQuestions {
             System.out.println("C: " + C3);
             System.out.println("D: " + D3);
 
+            System.out.println("Enter A, B, C, or D ");
+            answer = myObj.nextLine();
+
+            System.out.println("You've entered: " + answer);
+
             String Q4 = (String) question.get("Q4");
             String A4 = (String) question.get("A4");
             String B4 = (String) question.get("B4");
@@ -65,6 +82,11 @@ public class InterviewQuestions {
             System.out.println("B: " + B4);
             System.out.println("C: " + C4);
             System.out.println("D: " + D4);
+
+            System.out.println("Enter A, B, C, or D ");
+            answer = myObj.nextLine();
+
+            System.out.println("You've entered: " + answer);
 
             String Q5 = (String) question.get("Q5");
             String A5 = (String) question.get("A5");
@@ -77,6 +99,11 @@ public class InterviewQuestions {
             System.out.println("C: " + C5);
             System.out.println("D: " + D5);
 
+            System.out.println("Enter A, B, C, or D ");
+            answer = myObj.nextLine();
+
+            System.out.println("You've entered: " + answer);
+
             String Q6 = (String) question.get("Q6");
             String A6 = (String) question.get("A6");
             String B6 = (String) question.get("B6");
@@ -87,6 +114,11 @@ public class InterviewQuestions {
             System.out.println("B: " + B6);
             System.out.println("C: " + C6);
             System.out.println("D: " + D6);
+
+            System.out.println("Enter A, B, C, or D ");
+            answer = myObj.nextLine();
+
+            System.out.println("You've entered: " + answer);
         }
 
 
