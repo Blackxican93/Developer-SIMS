@@ -1,0 +1,38 @@
+[
+  {
+    "location": {
+      "locationName": "bedroom",
+      "locationDescription": "sleep in here",
+      "locationItems": [
+        {
+          "itemName": "bat"
+        },
+        {
+          "itemName": "bed"
+        }
+      ],
+      "locationDirections": {
+        "south": "bathroom",
+        "east": "office"
+      }
+    }
+  },
+  {
+    "location": {
+      "locationName": "office",
+      "locationDescription": "work in here",
+      "locationItems": [
+        {
+          "itemName": "laptop"
+        },
+        {
+          "itemName": "letter opener"
+        }
+      ],
+      "locationDirections": {
+        "west": "bedroom",
+        "south": "kitchen"
+      }
+    }
+  }
+  ]
