@@ -21,6 +21,7 @@ public class InterviewQuestions {
        for (Object o : jsonArray)
         {
             JSONObject question = (JSONObject) o;
+            //Q1
             String Q1 = (String) question.get("Q1");
             String A1 = (String) question.get("A1");
             String B1 = (String) question.get("B1");
@@ -32,6 +33,7 @@ public class InterviewQuestions {
             System.out.println("C: " + C1);
             System.out.println("D: " + D1);
 
+            //Q1 Prompt
             Scanner myObj = new Scanner(System.in);
             String answer;
 
@@ -40,6 +42,7 @@ public class InterviewQuestions {
 
             System.out.println("You've entered: " + answer);
 
+            //Q2
             String Q2 = (String) question.get("Q2");
             String A2 = (String) question.get("A2");
             String B2 = (String) question.get("B2");
@@ -51,11 +54,13 @@ public class InterviewQuestions {
             System.out.println("C: " + C2);
             System.out.println("D: " + D2);
 
+            //Q2 Prompt
             System.out.println("Enter A, B, C, or D ");
             answer = myObj.nextLine();
 
             System.out.println("You've entered: " + answer);
 
+            //Q3
             String Q3 = (String) question.get("Q3");
             String A3 = (String) question.get("A3");
             String B3 = (String) question.get("B3");
@@ -67,11 +72,13 @@ public class InterviewQuestions {
             System.out.println("C: " + C3);
             System.out.println("D: " + D3);
 
+            //Q3 Prompt
             System.out.println("Enter A, B, C, or D ");
             answer = myObj.nextLine();
 
             System.out.println("You've entered: " + answer);
 
+            //Q4
             String Q4 = (String) question.get("Q4");
             String A4 = (String) question.get("A4");
             String B4 = (String) question.get("B4");
@@ -83,11 +90,13 @@ public class InterviewQuestions {
             System.out.println("C: " + C4);
             System.out.println("D: " + D4);
 
+            //Q4 Prompt
             System.out.println("Enter A, B, C, or D ");
             answer = myObj.nextLine();
 
             System.out.println("You've entered: " + answer);
 
+            //Q5
             String Q5 = (String) question.get("Q5");
             String A5 = (String) question.get("A5");
             String B5 = (String) question.get("B5");
@@ -99,11 +108,13 @@ public class InterviewQuestions {
             System.out.println("C: " + C5);
             System.out.println("D: " + D5);
 
+            //Q5 Prompt
             System.out.println("Enter A, B, C, or D ");
             answer = myObj.nextLine();
 
             System.out.println("You've entered: " + answer);
 
+            //Q6
             String Q6 = (String) question.get("Q6");
             String A6 = (String) question.get("A6");
             String B6 = (String) question.get("B6");
@@ -115,6 +126,7 @@ public class InterviewQuestions {
             System.out.println("C: " + C6);
             System.out.println("D: " + D6);
 
+            //Q6 Prompt
             System.out.println("Enter A, B, C, or D ");
             answer = myObj.nextLine();
 
