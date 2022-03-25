@@ -28,18 +28,22 @@ public class Game {
 
 
 
-        String gameStart;
+        String choice;
+        String name;
 
         System.out.println(introArt);
-        System.out.println("Do you wish to continue? y/n");
-        gameStart = myScanner.nextLine();
-        if (gameStart.equals("y")) {
-            System.out.println("Please choose your character: ");
-        } else if (gameStart.equals("")) {
-            System.out.println("Invalid entry. Please choose y/n");
-        } else {
+        System.out.println("Enter your name: ");
+        name = sc.nextLine();
+        System.out.println("Hello " + name + "! Welcome to the House of Madness.\n" +
+                "Are you ready to enter? [y/n]");
+        choice = sc.nextLine();
+        if (choice.equals("y")) {
+            System.out.println("Insert intro story here.");
+        } else if (choice.equals("n")) {
             System.out.println("\nExiting game... ");
             System.exit(0);
+        } else {
+            System.out.println("Invalid entry. [y/n]");
         }
 
     }
