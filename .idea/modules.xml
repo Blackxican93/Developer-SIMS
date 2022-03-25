@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/House of Madness.iml" filepath="$PROJECT_DIR$/House of Madness.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/House-of-Madness.iml" filepath="$PROJECT_DIR$/.idea/House-of-Madness.iml" />
     </modules>
   </component>
 </project>
