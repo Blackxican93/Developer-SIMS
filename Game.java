@@ -38,7 +38,7 @@ public class Game {
                 "Are you ready to enter? [y/n]");
         choice = sc.nextLine();
         if (choice.equals("y")) {
-            System.out.println("Insert intro story here.");
+            System.out.println("Insert story intro here.");
         } else if (choice.equals("n")) {
             System.out.println("\nExiting game... ");
             System.exit(0);
