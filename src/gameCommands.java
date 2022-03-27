@@ -1,42 +1,49 @@
-import java.io.*;
-import java.util.Scanner;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import org.json.simple.JSONObject;
+
 import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.*;
 import org.json.simple.parser.ParseException;
 
 
 
 public class gameCommands
 {
-    public static void main(String[] args) throws FileNotFoundException, IOException, ParseException, NullPointerException
-    {
+    @SuppressWarnings("unchecked")
+    public static void main(String[] args) {
 
-        JSONParser parser = new JSONParser();
-        JSONArray jsonArray = (JSONArray) parser.parse(new FileReader("/Users/jr/Desktop/House of Madness/gameCommands.json"));
+        JSONParser jsonparser = new JSONParser();
 
-       for (Object o : jsonArray)
+        try (FileReader reader = new FileReader("/Users/jr/Desktop/House of Madness/gameCommands.json")) {
+            Object obj = jsonparser.parse(reader);
+
+            JSONArray commandsList = (JSONArray) obj;
+            System.out.println(commandsList);
+
+            commandsList.forEach(com -> parseCommandsObject((JSONObject) com));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+    }
+       private static void parseCommandsObject(JSONObject commands)
        {
-           JSONObject command = (JSONObject) o;
+           JSONObject commandsObject= (JSONObject) commands.get("gameCommands");
 
-           String gameCommands = (String) command.get("gameCommand1").toString();
-           System.out.println(gameCommands);
+           String commandName = (String) commandsObject.get("commandName");
+           System.out.println("commandName: " + commandName);
 
-           String commandName = (String) command.get("commandName1").toString();
-           System.out.println(commandName);
+           String commandDescription = (String) commandsObject.get("commandDescription");
+           System.out.println("commandDescription: " + commandDescription);
 
-           String commandDescription = (String) command.get("commandDescription1").toString();
-           System.out.println(commandDescription);
+           String commandExample = (String) commandsObject.get("commandExample");
+           System.out.println("commandExample: " + commandExample);
 
-           String commandExamples = (String) command.get("commandExamples1").toString();
-           System.out.println(commandExamples);
 
        }
     }
-
-
-}
