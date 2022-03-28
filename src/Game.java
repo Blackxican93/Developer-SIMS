@@ -35,58 +35,96 @@ public class Game {
         int locationsSize = this.locations.size();
         Location location = locations.get(random.nextInt(locationsSize));
         Scanner sc = new Scanner(System.in);
+        String choice;
+        String name;
+
+        Scanner myScanner = new Scanner(System.in);
+        String introArt = """
+                               )
+                             ( _   _._              WELCOME TO THE HOUSE OF MADNESS!
+                              |_|-'_~_`-._
+                           _.-'-_~_-~_-~-_`-._                 Authors:
+                       _.-'_~-_~-_-~-_~_~-_~-_`-._          Justin Peebles
+                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~         Vernon Stephens
+                        |  []       []       [] |            Maria Nieves
+                        |           __    ___   |
+                      ._|  []      | .|  [___]  |_._._._._._._._._._._._._._._._._.
+                      |=|________()|__|()_______|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|
+                    ^^^^^^^^^^^^^^^ === ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                 You are an aspiring Software Developer. You just landed an interview
+                 with Amazon. Despite any unexpected encounters you may face, you MUST
+                 complete the given assessment in time.
+                 
+                ======================================================================
+                """;
+
         while(!isOver) {
-            System.out.println("You are standing in " + location.getLocationName());
-            List<LocationItem> locationItems = location.getLocationItems();
-            System.out.println("You see these items with these corresponding actions: [" + locationItems.toString() + "]");
-            System.out.println("You have these movement options : [" + location.getLocationDirections().toString() + "]");
-            System.out.println("Will you use an item, or change location? [Item/item | Location/location]");
-            String typeOfAction = sc.next();
-            if (typeOfAction.toLowerCase().equals("Item".toLowerCase())) {
-                System.out.println("Please pick one of the available items to use for the corresponding action: [" + locationItems.toString() + "]");
-                String itemPicked = sc.next();
-                for (int i = 0; i < locationItems.size(); i++) {
-                    if (locationItems.get(i).getName().equals(itemPicked)) {
-                        for (int j = 0; j < items.size(); j++) {
-                            if (items.get(j).getItemName().toLowerCase().equals(itemPicked.toLowerCase())) {
-                                System.out.println("Action: " + items.get(j).getItemAttribute());
-                                break;
+            System.out.println(introArt);
+            System.out.println("Enter your name: ");
+            name = sc.nextLine();
+            System.out.println("Hello " + name + "! Welcome to the House of Madness.\n" +
+                    "Are you ready to enter? [y/n]");
+            choice = sc.nextLine();
+            if (choice.equals("y")) {
+                System.out.println("Insert story intro here.");
+
+                System.out.println("You are standing in " + location.getLocationName());
+                List<LocationItem> locationItems = location.getLocationItems();
+                System.out.println("You see these items with these corresponding actions: [" + locationItems.toString() + "]");
+                System.out.println("You have these movement options : [" + location.getLocationDirections().toString() + "]");
+                System.out.println("Will you use an item, or change location? [Item/item | Location/location]");
+                String typeOfAction = sc.next();
+                if (typeOfAction.toLowerCase().equals("Item".toLowerCase())) {
+                    System.out.println("Please pick one of the available items to use for the corresponding action: [" + locationItems.toString() + "]");
+                    String itemPicked = sc.next();
+                    for (int i = 0; i < locationItems.size(); i++) {
+                        if (locationItems.get(i).getName().equals(itemPicked)) {
+                            for (int j = 0; j < items.size(); j++) {
+                                if (items.get(j).getItemName().toLowerCase().equals(itemPicked.toLowerCase())) {
+                                    System.out.println("Action: " + items.get(j).getItemAttribute());
+                                    break;
+                                }
                             }
                         }
                     }
-                }
-            } else if (typeOfAction.toLowerCase().equals("Location".toLowerCase())) {
-                List<LocationDirections> locationDirections = location.getLocationDirections();
-                System.out.println("Please pick one of the available location to go to: [" + locationDirections.toString() + "]");
-                String locationPicked = sc.next();
-                boolean locationFound = false;
-                for (int i = 0; i < locationDirections.size(); i++) {
-                    if (locationPicked.toLowerCase().equals(locationDirections.get(i).getValue().toLowerCase()) ||
-                            locationPicked.toLowerCase().equals(locationDirections.get(i).getKey().toLowerCase())) {
-                        for (int k = 0; k < locations.size(); k++) {
-                            if (locations.get(k).getLocationName().toLowerCase().equals(locationPicked.toLowerCase())) {
-                                location = locations.get(k);
-                                locationFound = true;
-                                break;
-                            }
-                            if (locationFound == true) {
-                                break;
+                } else if (typeOfAction.toLowerCase().equals("Location".toLowerCase())) {
+                    List<LocationDirections> locationDirections = location.getLocationDirections();
+                    System.out.println("Please pick one of the available location to go to: [" + locationDirections.toString() + "]");
+                    String locationPicked = sc.next();
+                    boolean locationFound = false;
+                    for (int i = 0; i < locationDirections.size(); i++) {
+                        if (locationPicked.toLowerCase().equals(locationDirections.get(i).getValue().toLowerCase()) ||
+                                locationPicked.toLowerCase().equals(locationDirections.get(i).getKey().toLowerCase())) {
+                            for (int k = 0; k < locations.size(); k++) {
+                                if (locations.get(k).getLocationName().toLowerCase().equals(locationPicked.toLowerCase())) {
+                                    location = locations.get(k);
+                                    locationFound = true;
+                                    break;
+                                }
+                                if (locationFound == true) {
+                                    break;
+                                }
                             }
                         }
+                        if (locationFound == true) {
+                            break;
+                        }
                     }
-                    if (locationFound == true) {
-                        break;
+                    if (!locationFound) {
+                        System.out.println("I dont know where that is");
                     }
+                } else if (typeOfAction.toLowerCase().equals("Exit".toLowerCase())) {
+                    System.out.println("Bye");
+                    return;
+                } else {
+                    System.out.println("I cant understand you");
                 }
-                if (!locationFound) {
-                    System.out.println("I dont know where that is");
-                }
-            } else if(typeOfAction.toLowerCase().equals("Exit".toLowerCase())) {
-                System.out.println("Bye");
-                return;
-            }else {
-                System.out.println("I cant understand you");
-            }
+            } else if (choice.equals("n")) {
+            System.out.println("\nExiting game... ");
+            System.exit(0);
+        } else {
+            System.out.println("Invalid entry. [y/n]");
+        }
         }
     }
 
