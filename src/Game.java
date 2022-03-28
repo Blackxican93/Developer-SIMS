@@ -39,6 +39,8 @@ public class Game {
         Scanner sc = new Scanner(System.in);
 //        while(!isOver) {}
         System.out.println("You are standing in " + location.getLocationName());
+        List<LocationItem> locationItems = location.getLocationItems();
+        System.out.println("You see these items with these corresponding actions: [" + locationItems.toString() + "]");
 
     }
 
