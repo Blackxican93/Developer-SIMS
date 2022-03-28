@@ -14,12 +14,6 @@ import org.json.simple.parser.ParseException;
 
 
 public class AddLocations {
-    String locationName1 = "man cave";
-    String locationName2 = "gym";
-    String locationItem1 = "hookah";
-    String locationItem2 = "beer";
-    String inputY;
-
 
     @SuppressWarnings("unchecked")
     public static void main(String[] args) {
