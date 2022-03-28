@@ -41,6 +41,7 @@ public class Game {
         System.out.println("You are standing in " + location.getLocationName());
         List<LocationItem> locationItems = location.getLocationItems();
         System.out.println("You see these items with these corresponding actions: [" + locationItems.toString() + "]");
+        System.out.println("You have these movement options : [" + location.getLocationDirections().toString() + "]");
 
     }
 
