@@ -39,6 +39,9 @@ public class ReadLocations
         String locationName = (String) readLocationsObject.get("locationName");
         System.out.println("locationName: " + locationName);
 
+        String locationDirections = (String) readLocationsObject.get("locationDirections");
+        System.out.println("locationDirections: " + locationDirections);
+
         String locationDescription = (String) readLocationsObject.get("locationDescription");
         System.out.println("locationDescription: " + locationDescription);
 
