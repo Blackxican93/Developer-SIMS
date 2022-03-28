@@ -2,12 +2,12 @@ import java.util.HashMap;
 import java.util.Map;
 
 
-public class LocationDirections2 {
+public class LocationDirections {
     private String key;
     private String  value;
 
 
-    public LocationDirections2(String key, String value) {
+    public LocationDirections(String key, String value) {
         this.key = key;
         this.value = value;
     }
@@ -31,7 +31,7 @@ public class LocationDirections2 {
 
     @Override
     public String toString() {
-        return "LocationDirections2{" +
+        return "LocationDirections{" +
                 "key='" + key + '\'' +
                 ", value='" + value + '\'' +
                 '}';

@@ -1,6 +1,5 @@
 import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.IOException;
 
 import org.json.simple.JSONArray;
@@ -20,10 +19,10 @@ public class ReadLocations
         try (FileReader reader = new FileReader("/Users/jr/Desktop/House of Madness/location.json")) {
             Object obj = jsonparser.parse(reader);
 
-            JSONArray readLocationsList = (JSONArray) obj;
-            System.out.println(readLocationsList );
+            JSONArray locationsList = (JSONArray) obj;
+            System.out.println(locationsList);
 
-            readLocationsList .forEach(loc -> parseReadLocationsObject((JSONObject) loc));
+            locationsList.forEach(loc -> parseLocationsObject( (JSONObject) loc) );
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -32,24 +31,21 @@ public class ReadLocations
             e.printStackTrace();
         }
     }
-    private static void parseReadLocationsObject(JSONObject readLocations)
+    private static void parseLocationsObject(JSONObject locations)
     {
-        JSONObject readLocationsObject= (JSONObject) readLocations.get("location");
+        JSONObject locationsObject= (JSONObject) locations.get("location");
 
-        String locationName = (String) readLocationsObject.get("locationName");
+        String locationName = (String) locationsObject.get("locationName");
         System.out.println("locationName: " + locationName);
 
-        String locationDirections = (String) readLocationsObject.get("locationDirections");
-        System.out.println("locationDirections: " + locationDirections);
-
-        String locationDescription = (String) readLocationsObject.get("locationDescription");
+        String locationDescription = (String) locationsObject.get("locationDescription");
         System.out.println("locationDescription: " + locationDescription);
 
-        String locationItems = (String) readLocationsObject.get("locationItems");
+        String locationItems = (String) locationsObject.get("locationItems");
         System.out.println("locationItems: " + locationItems);
 
+        String locationDirections = (String) locationsObject.get("locationDirections");
+        System.out.println("locationDirections: " + locationDirections);
 
     }
-
-
 }
