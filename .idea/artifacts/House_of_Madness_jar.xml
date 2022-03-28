@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="House-of-Madness:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/House_of_Madness_jar</output-path>
+    <root id="archive" name="House-of-Madness.jar">
+      <element id="module-output" name="House-of-Madness" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/json-simple-1.1.1.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
