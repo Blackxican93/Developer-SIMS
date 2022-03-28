@@ -4,7 +4,6 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
-
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.*;
@@ -28,6 +27,19 @@ public class Game {
         populateLocationsFromJson();
         populateItemsFromJson();
         this.player = new Player();
+        this.playGame();
+    }
+
+    private void playGame() {
+//        boolean isOver = false;
+        System.out.println("Hello " + player.getName());
+        Random random = new Random();
+        int locationsSize = this.locations.size();
+        Location location = locations.get(random.nextInt(locationsSize));
+        Scanner sc = new Scanner(System.in);
+//        while(!isOver) {}
+        System.out.println("You are standing in " + location.getLocationName());
+
     }
 
     public void populateLocationsFromJson() throws IOException, ParseException {

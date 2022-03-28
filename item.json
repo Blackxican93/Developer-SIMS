@@ -1,0 +1,50 @@
+[
+  {
+    "item": {
+      "itemName": "laptop",
+      "itemDescription": "work laptop",
+      "itemAttribute": "perform work tasks",
+      "itemLocation": "office"
+    }
+  },
+  {
+    "item": {
+      "itemName": "letter opened",
+      "itemDescription": "small knife that opens envelopes",
+      "itemAttribute": " ... ",
+      "itemLocation": "office"
+    }
+  },
+  {
+    "item": {
+      "itemName": "coffee",
+      "itemDescription": "morning coffee",
+      "itemAttribute": "drink coffee",
+      "itemLocation": "kitchen"
+    }
+      },
+  {
+    "item": {
+      "itemName": "bat",
+      "itemDescription": "baseball bat",
+      "itemAttribute": "protection against intruders",
+      "itemLocation": "bedroom"
+    }
+      },
+  {
+    "item": {
+      "itemName": "bat",
+      "itemDescription": "baseball bat",
+      "itemAttribute": "protection against intruders",
+      "itemLocation": "bedroom"
+    }
+  },
+  {
+    "item": {
+      "itemName": "bed",
+      "itemDescription": "king bed",
+      "itemAttribute": "go to sleep",
+      "itemLocation": "bedroom"
+    }
+  }
+  ]
