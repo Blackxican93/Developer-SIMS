@@ -42,8 +42,8 @@ public class ReadLocations
         String locationDescription = (String) readLocationsObject.get("locationDescription");
         System.out.println("locationDescription: " + locationDescription);
 
-        //String locationItems = (String) modifyLocations.get("locationItems");
-        //System.out.println("locationItems: " + locationItems);
+        String locationItems = (String) readLocationsObject.get("locationItems");
+        System.out.println("locationItems: " + locationItems);
 
 
     }

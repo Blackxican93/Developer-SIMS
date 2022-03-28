@@ -1,7 +1,7 @@
-public class LocationItem {
+public class LocationItem2 {
     private String name;
 
-    public LocationItem(String name) {
+    public LocationItem2(String name) {
         this.name = name;
     }
 
@@ -17,7 +17,7 @@ public class LocationItem {
 
     @Override
     public String toString() {
-        return "LocationItem{" +
+        return "LocationItem2{" +
                 "name='" + name + '\'' +
                 '}';
     }

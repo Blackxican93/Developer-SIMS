@@ -22,7 +22,7 @@ public class gameCommands
             JSONArray commandsList = (JSONArray) obj;
             System.out.println(commandsList);
 
-            commandsList.forEach(com -> parseCommandsObject((JSONObject) com));
+            commandsList.forEach(com -> parseCommandsObject( (JSONObject) com) );
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
