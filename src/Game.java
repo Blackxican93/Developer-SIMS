@@ -31,18 +31,65 @@ public class Game {
     }
 
     private void playGame() {
-//        boolean isOver = false;
+        boolean isOver = false;
         System.out.println("Hello " + player.getName());
         Random random = new Random();
         int locationsSize = this.locations.size();
         Location location = locations.get(random.nextInt(locationsSize));
         Scanner sc = new Scanner(System.in);
-//        while(!isOver) {}
-        System.out.println("You are standing in " + location.getLocationName());
-        List<LocationItem> locationItems = location.getLocationItems();
-        System.out.println("You see these items with these corresponding actions: [" + locationItems.toString() + "]");
-        System.out.println("You have these movement options : [" + location.getLocationDirections().toString() + "]");
-
+        while(!isOver) {
+            System.out.println("You are standing in " + location.getLocationName());
+            List<LocationItem> locationItems = location.getLocationItems();
+            System.out.println("You see these items with these corresponding actions: [" + locationItems.toString() + "]");
+            System.out.println("You have these movement options : [" + location.getLocationDirections().toString() + "]");
+            System.out.println("Will you use an item, or change location? [Item/item | Location/location]");
+            String typeOfAction = sc.next();
+            if (typeOfAction.toLowerCase().equals("Item".toLowerCase())) {
+                System.out.println("Please pick one of the available items to use for the corresponding action: [" + locationItems.toString() + "]");
+                String itemPicked = sc.next();
+                for (int i = 0; i < locationItems.size(); i++) {
+                    if (locationItems.get(i).getName().equals(itemPicked)) {
+                        for (int j = 0; j < items.size(); j++) {
+                            if (items.get(j).getItemName().toLowerCase().equals(itemPicked.toLowerCase())) {
+                                System.out.println("Action: " + items.get(j).getItemAttribute());
+                                break;
+                            }
+                        }
+                    }
+                }
+            } else if (typeOfAction.toLowerCase().equals("Location".toLowerCase())) {
+                List<LocationDirections> locationDirections = location.getLocationDirections();
+                System.out.println("Please pick one of the available location to go to: [" + locationDirections.toString() + "]");
+                String locationPicked = sc.next();
+                boolean locationFound = false;
+                for (int i = 0; i < locationDirections.size(); i++) {
+                    if (locationPicked.toLowerCase().equals(locationDirections.get(i).getValue().toLowerCase()) ||
+                            locationPicked.toLowerCase().equals(locationDirections.get(i).getKey().toLowerCase())) {
+                        for (int k = 0; k < locations.size(); k++) {
+                            if (locations.get(k).getLocationName().toLowerCase().equals(locationPicked.toLowerCase())) {
+                                location = locations.get(k);
+                                locationFound = true;
+                                break;
+                            }
+                            if (locationFound == true) {
+                                break;
+                            }
+                        }
+                    }
+                    if (locationFound == true) {
+                        break;
+                    }
+                }
+                if (!locationFound) {
+                    System.out.println("I dont know where that is");
+                }
+            } else if(typeOfAction.toLowerCase().equals("Exit".toLowerCase())) {
+                System.out.println("Bye");
+                return;
+            }else {
+                System.out.println("I cant understand you");
+            }
+        }
     }
 
     public void populateLocationsFromJson() throws IOException, ParseException {
@@ -50,7 +97,8 @@ public class Game {
 
         JSONArray a = (JSONArray) parser.parse(new FileReader("location.json"));
 
-        for (Object o : a) {
+        for (Object o : a)
+        {
 
             JSONObject locationObj = (JSONObject) o;
             Map<String, String> location = (Map<String, String>) locationObj.get("location");
@@ -72,7 +120,7 @@ public class Game {
             List<LocationDirections> locationDirections = new ArrayList<>();
 
 
-            for (Iterator iterator = locationDirectionsJsonObj.keySet().iterator(); iterator.hasNext(); ) {
+            for (Iterator iterator = locationDirectionsJsonObj.keySet().iterator(); iterator.hasNext();) {
                 String key = (String) iterator.next();
                 String val = (String) locationDirectionsJsonObj.get(key);
                 locationDirections.add(new LocationDirections(key.trim(), val.trim()));
@@ -80,7 +128,6 @@ public class Game {
             locations.add(new Location(locationName, locationDescription, locationItems, locationDirections));
         }
     }
-
 
     public void populateItemsFromJson() throws IOException, ParseException {
         JSONParser parser = new JSONParser();
@@ -119,6 +166,4 @@ public class Game {
             }
         }
     }
-
-
 }

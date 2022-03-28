@@ -1,9 +1,8 @@
 package src;
 
-
 public class LocationDirections {
     private String key;
-    private String value;
+    private String  value;
 
 
     public LocationDirections(String key, String value) {

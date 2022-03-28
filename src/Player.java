@@ -1,7 +1,6 @@
 package src;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class Player {
 
@@ -15,9 +14,6 @@ public class Player {
         this.name = "Default Player";
 
     }
-
-
-
 
     public Location getLocation() {
         return location;
