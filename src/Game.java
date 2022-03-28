@@ -30,7 +30,6 @@ public class Game {
 
     private void playGame() {
         boolean isOver = false;
-        System.out.println("Hello " + player.getName());
         Random random = new Random();
         int locationsSize = this.locations.size();
         Location location = locations.get(random.nextInt(locationsSize));

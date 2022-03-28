@@ -9,7 +9,6 @@ public class Player {
     public Player() {
         this.location = new Location();
         this.items = new ArrayList<>();
-        this.name = "Default Player";
 
     }
 
