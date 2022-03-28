@@ -22,7 +22,7 @@
       "itemAttribute": "drink coffee",
       "itemLocation": "kitchen"
     }
-      },
+  },
   {
     "item": {
       "itemName": "bat",
@@ -30,7 +30,7 @@
       "itemAttribute": "protection against intruders",
       "itemLocation": "bedroom"
     }
-      },
+  },
   {
     "item": {
       "itemName": "bat",
@@ -47,4 +47,4 @@
       "itemLocation": "bedroom"
     }
   }
-  ]
+]

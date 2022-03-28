@@ -17,7 +17,7 @@ public class ReadLocations
 
         JSONParser jsonparser = new JSONParser();
 
-        try (FileReader reader = new FileReader("/Users/jr/Desktop/House of Madness/location.json")) {
+        try (FileReader reader = new FileReader("location.json")) {
             Object obj = jsonparser.parse(reader);
 
             JSONArray readLocationsList = (JSONArray) obj;
