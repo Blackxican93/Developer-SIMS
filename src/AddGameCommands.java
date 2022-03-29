@@ -20,15 +20,6 @@ public class AddGameCommands {
     @SuppressWarnings("unchecked")
     public static void main(String[] args) {
 
-        List<String> verbs = new ArrayList<>(Arrays.asList(
-                "take", "drop", "look", "run", "go"));
-        List<String> nouns = new ArrayList<>(Arrays.asList("north", "south", "east", "west","sword", "laptop", "away"));
-        System.out.println("Here are some examples of verbs you can use for the game: ");
-        System.out.println(verbs);
-        System.out.println("Here are some examples of nouns you can use for the game: ");
-        System.out.println(nouns);
-        System.out.println("IMPORTANT! Use a combination of a noun and a verb to interact in the game. For example (go north) ");
-        System.out.println("_______________________________________________________________________________________");
         JSONParser jsonParser = new JSONParser();
 
         try {

@@ -2,6 +2,8 @@
   {
     "gameCommands": {
       "commandName": "move ",
+      "commandDescription": "To MOVE from one place to another, type go plus the direction you want to go. ",
+      "commandExample": "go north",
       "commandSynonyms": [
         {
           "synonym": "go"
@@ -12,9 +14,7 @@
         {
           "synonym": "proceed"
         }
-      ],
-      "commandDescription": "To MOVE from one place to another, type go plus the direction you want to go. ",
-      "commandExample": "go north"
+      ]
     }
   },
   {
@@ -57,5 +57,10 @@
     "commandName": "run",
     "commandDescription": "The monster is on to you so you better run! ",
     "commandExample": "run office"
+  },
+  {
+    "commandName": "drink",
+    "commandDescription": "drink beer",
+    "commandExample": "drink beer"
   }
 ]
