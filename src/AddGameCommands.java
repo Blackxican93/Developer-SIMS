@@ -26,7 +26,7 @@ public class AddGameCommands {
         JSONParser jsonParser = new JSONParser();
 
         try {
-            Object obj = jsonParser.parse(new FileReader("/Users/jr/Desktop/House of Madness/gameCommands.json"));
+            Object obj = jsonParser.parse(new FileReader("gameCommands.json"));
             JSONArray jsonArray = (JSONArray) obj;
 
             System.out.println(jsonArray);
@@ -59,7 +59,7 @@ public class AddGameCommands {
             System.out.println("Your options have been added to the list ");
             System.out.println(jsonArray);
 
-            FileWriter file = new FileWriter("/Users/jr/Desktop/House of Madness/gameCommands.json");
+            FileWriter file = new FileWriter("gameCommands.json");
             file.write(jsonArray.toJSONString());
             file.flush();
             file.close();
