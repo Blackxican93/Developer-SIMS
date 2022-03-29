@@ -1,10 +1,7 @@
-<<<<<<< HEAD:src/LocationDirections.java
 import java.util.HashMap;
 import java.util.Map;
 
 
-=======
->>>>>>> 984984dbe46819fa61bb5c03b939e25eeb6f0a05:src/LocationDirections2.java
 public class LocationDirections {
     private String key;
     private String  value;

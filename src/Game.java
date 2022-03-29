@@ -30,7 +30,6 @@ public class Game {
 
     private void playGame() {
         boolean isOver = false;
-        System.out.println("Hello " + player.getName());
         Random random = new Random();
         int locationsSize = this.locations.size();
         Location location = locations.get(random.nextInt(locationsSize));
@@ -39,27 +38,27 @@ public class Game {
         String name;
 
         Scanner myScanner = new Scanner(System.in);
-        String introArt = """
-                               )
-                             ( _   _._              WELCOME TO THE HOUSE OF MADNESS!
-                              |_|-'_~_`-._
-                           _.-'-_~_-~_-~-_`-._                 Authors:
-                       _.-'_~-_~-_-~-_~_~-_~-_`-._          Justin Peebles
-                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~         Vernon Stephens
-                        |  []       []       [] |            Maria Nieves
-                        |           __    ___   |
-                      ._|  []      | .|  [___]  |_._._._._._._._._._._._._._._._._.
-                      |=|________()|__|()_______|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|
-                    ^^^^^^^^^^^^^^^ === ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-                 You are an aspiring Software Developer. You just landed an interview
-                 with Amazon. Despite any unexpected encounters you may face, you MUST
-                 complete the given assessment in time.
-                 
-                ======================================================================
-                """;
+//        String introArt = """
+//                               )
+ //                            ( _   _._              WELCOME TO THE HOUSE OF MADNESS!
+ //                             |_|-'_~_`-._
+ //                          _.-'-_~_-~_-~-_`-._                 Authors:
+ //                      _.-'_~-_~-_-~-_~_~-_~-_`-._          Justin Peebles
+ //                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~         Vernon Stephens
+ //                       |  []       []       [] |            Maria Nieves
+ //                       |           __    ___   |
+ //                     ._|  []      | .|  [___]  |_._._._._._._._._._._._._._._._._.
+ //                     |=|________()|__|()_______|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|
+ //                   ^^^^^^^^^^^^^^^ === ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ //                You are an aspiring Software Developer. You just landed an interview
+//                 with Amazon. Despite any unexpected encounters you may face, you MUST
+ //                complete the given assessment in time.
+ //
+//                ======================================================================
+//                """;
 
         while(!isOver) {
-            System.out.println(introArt);
+//            System.out.println(introArt);
             System.out.println("Enter your name: ");
             name = sc.nextLine();
             System.out.println("Hello " + name + "! Welcome to the House of Madness.\n" +
@@ -120,11 +119,11 @@ public class Game {
                     System.out.println("I cant understand you");
                 }
             } else if (choice.equals("n")) {
-            System.out.println("\nExiting game... ");
-            System.exit(0);
-        } else {
-            System.out.println("Invalid entry. [y/n]");
-        }
+                System.out.println("\nExiting game... ");
+                System.exit(0);
+            } else {
+                System.out.println("Invalid entry. [y/n]");
+            }
         }
     }
 

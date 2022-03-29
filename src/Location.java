@@ -1,12 +1,7 @@
 import java.util.List;
 
-<<<<<<< HEAD
 
 public class Location {
-=======
-public class Location
-{
->>>>>>> 984984dbe46819fa61bb5c03b939e25eeb6f0a05
     private String locationName;
     private String locationDescription;
     private List<LocationItem> locationItems;
@@ -20,12 +15,8 @@ public class Location
         this.locationDirections = locationDirections;
     }
 
-<<<<<<< HEAD
     public Location() {
     }
-=======
-    public Location() {}
->>>>>>> 984984dbe46819fa61bb5c03b939e25eeb6f0a05
 
 
     public String getLocationName() {
