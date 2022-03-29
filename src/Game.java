@@ -38,34 +38,46 @@ public class Game {
         String name;
 
         Scanner myScanner = new Scanner(System.in);
-//        String introArt = """
-//                               )
- //                            ( _   _._              WELCOME TO THE HOUSE OF MADNESS!
- //                             |_|-'_~_`-._
- //                          _.-'-_~_-~_-~-_`-._                 Authors:
- //                      _.-'_~-_~-_-~-_~_~-_~-_`-._          Justin Peebles
- //                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~         Vernon Stephens
- //                       |  []       []       [] |            Maria Nieves
- //                       |           __    ___   |
- //                     ._|  []      | .|  [___]  |_._._._._._._._._._._._._._._._._.
- //                     |=|________()|__|()_______|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|
- //                   ^^^^^^^^^^^^^^^ === ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
- //                You are an aspiring Software Developer. You just landed an interview
-//                 with Amazon. Despite any unexpected encounters you may face, you MUST
- //                complete the given assessment in time.
- //
-//                ======================================================================
-//                """;
+        String introArt = """
+                               )
+                             ( _   _._              WELCOME TO THE HOUSE OF MADNESS!
+                              |_|-'_~_`-._
+                           _.-'-_~_-~_-~-_`-._                 Authors:
+                       _.-'_~-_~-_-~-_~_~-_~-_`-._          Justin Peebles
+                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~         Vernon Stephens
+                        |  []       []       [] |            Maria Nieves
+                        |           __    ___   |
+                      ._|  []      | .|  [___]  |_._._._._._._._._._._._._._._._._.
+                      |=|________()|__|()_______|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|
+                    ^^^^^^^^^^^^^^^ === ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                 You are an aspiring Software Developer. You just landed an interview
+                 with Amazon. Despite any unexpected encounters you may face, you MUST
+                 complete the given assessment in time.
+
+                ======================================================================
+                """;
 
         while(!isOver) {
-//            System.out.println(introArt);
+            System.out.println(introArt);
             System.out.println("Enter your name: ");
             name = sc.nextLine();
             System.out.println("Hello " + name + "! Welcome to the House of Madness.\n" +
                     "Are you ready to enter? [y/n]");
             choice = sc.nextLine();
+            System.out.println("__________________");
             if (choice.equals("y")) {
                 System.out.println("Insert story intro here.");
+                System.out.println("________________________");
+
+                List<String> verbs = new ArrayList<>(Arrays.asList(
+                        "take", "drop", "look", "run", "go"));
+                List<String> nouns = new ArrayList<>(Arrays.asList("north", "south", "east", "west","sword", "laptop", "away"));
+                System.out.println("Here are some examples of verbs you can use for the game: ");
+                System.out.println(verbs);
+                System.out.println("Here are some examples of nouns you can use for the game: ");
+                System.out.println(nouns);
+                System.out.println("IMPORTANT! Use a combination of a noun and a verb to interact in the game. For example (go north) ");
+                System.out.println("_______________________________________________________________________________________");
 
                 System.out.println("You are standing in " + location.getLocationName());
                 List<LocationItem> locationItems = location.getLocationItems();
