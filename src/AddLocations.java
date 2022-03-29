@@ -25,18 +25,20 @@ public class AddLocations {
 
         JSONParser jsonParser = new JSONParser();
 
+        JSONObject addLocation = new JSONObject();
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Would you like to add a location to the game? Type Y or N ");
+
+        input = sc.nextLine();
+        System.out.println("You have entered: " + input);
+
+        if (input.equals("Y")) {
         try {
             Object obj = jsonParser.parse(new FileReader("/Users/jr/Desktop/House of Madness/location.json"));
             JSONArray jsonArray = (JSONArray)obj;
 
             System.out.println(jsonArray);
 
-            JSONObject addLocation = new JSONObject();
-            Scanner sc = new Scanner(System.in);
-            System.out.println("Would you like to add a location to the game? Type Y or N ");
-
-            input = sc.nextLine();
-            System.out.println("You have entered: " + input);
 
             System.out.println("You have the option of creating a location inside of the house. Simply type in your location name using one word. ");
             locationNameOption = sc.nextLine();
@@ -70,6 +72,11 @@ public class AddLocations {
 
         } catch (ParseException | IOException e) {
             e.printStackTrace();
+        }
+        } else if (input.equals("N")) {
+            System.out.println("No additions were made. ");
+        } else {
+            System.out.println("Invalid command. ");
         }
 
     }

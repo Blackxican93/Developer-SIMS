@@ -32,12 +32,13 @@ public class AddItems {
             input = in.nextLine();
             System.out.println("You have entered: " + input);
 
-            if (input.equals("Y".toLowerCase())) {
+            if (input.equals("Y")) {
                 try {
                     Object obj = jsonParser.parse(new FileReader("item.json"));
                     JSONArray jsonArray = (JSONArray) obj;
 
                     System.out.println(jsonArray);
+
                 System.out.println("You have the option of creating an item. Simply type in your command name using one word. ");
                 itemNameOption = in.nextLine();
                 System.out.println("You have entered: " + itemNameOption);
@@ -72,7 +73,7 @@ public class AddItems {
             }
 
         }
-        else if (input.equals("N".toLowerCase())) {
+        else if (input.equals("N")) {
             System.out.println("No additions were made. ");
         } else {
             System.out.println("Invalid command. ");
