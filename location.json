@@ -56,7 +56,10 @@
       "locationDescription": "clean up in here",
       "locationItems": [
         {
-          "itemName": "letter opener"
+          "itemName": "plunger"
+        },
+        {
+          "itemName": "toilet paper"
         }
       ],
       "locationDirections": {
