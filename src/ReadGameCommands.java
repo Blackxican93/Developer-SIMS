@@ -16,7 +16,7 @@ public class ReadGameCommands
 
         JSONParser jsonparser = new JSONParser();
 
-        try (FileReader reader = new FileReader("/Users/jr/Desktop/House of Madness/gameCommands.json")) {
+        try (FileReader reader = new FileReader("gameCommands.json")) {
             Object obj = jsonparser.parse(reader);
 
             JSONArray commandsList = (JSONArray) obj;

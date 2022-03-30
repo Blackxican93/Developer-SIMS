@@ -33,46 +33,46 @@ public class AddLocations {
         System.out.println("You have entered: " + input);
 
         if (input.equals("Y")) {
-        try {
-            Object obj = jsonParser.parse(new FileReader("/Users/jr/Desktop/House of Madness/location.json"));
-            JSONArray jsonArray = (JSONArray)obj;
+            try {
+                Object obj = jsonParser.parse(new FileReader("location.json"));
+                JSONArray jsonArray = (JSONArray)obj;
 
-            System.out.println(jsonArray);
-
-
-            System.out.println("You have the option of creating a location inside of the house. Simply type in your location name using one word. ");
-            locationNameOption = sc.nextLine();
-            System.out.println("You have entered: " + locationNameOption);
-            addLocation.put("locationName", locationNameOption);
-
-            System.out.println("You have the option of creating a location direction inside of the house. Simply type in your location direction. ");
-            locationDirectionsOption = sc.nextLine();
-            System.out.println("You have entered: " + locationDirectionsOption);
-            addLocation.put("locationDirections", locationDirectionsOption);
-
-            System.out.println("You have the option of creating a location description. Simply type in your location description. ");
-            locationDescriptionOption = sc.nextLine();
-            System.out.println("You have entered: " + locationDescriptionOption);
-            addLocation.put("locationDescription", locationDescriptionOption);
-
-            System.out.println("You have the option of creating a location item. Simply type in your location item. ");
-            locationItemsOption = sc.nextLine();
-            System.out.println("You have entered: " + locationItemsOption);
-            addLocation.put("locationItems", locationItemsOption);
+                System.out.println(jsonArray);
 
 
-            jsonArray.add(addLocation);
-            System.out.println("Your options have been added to the list ");
-            System.out.println(jsonArray);
+                System.out.println("You have the option of creating a location inside of the house. Simply type in your location name using one word. ");
+                locationNameOption = sc.nextLine();
+                System.out.println("You have entered: " + locationNameOption);
+                addLocation.put("locationName", locationNameOption);
 
-            FileWriter file = new FileWriter("/Users/jr/Desktop/House of Madness/location.json");
-            file.write(jsonArray.toJSONString());
-            file.flush();
-            file.close();
+                System.out.println("You have the option of creating a location direction inside of the house. Simply type in your location direction. ");
+                locationDirectionsOption = sc.nextLine();
+                System.out.println("You have entered: " + locationDirectionsOption);
+                addLocation.put("locationDirections", locationDirectionsOption);
 
-        } catch (ParseException | IOException e) {
-            e.printStackTrace();
-        }
+                System.out.println("You have the option of creating a location description. Simply type in your location description. ");
+                locationDescriptionOption = sc.nextLine();
+                System.out.println("You have entered: " + locationDescriptionOption);
+                addLocation.put("locationDescription", locationDescriptionOption);
+
+                System.out.println("You have the option of creating a location item. Simply type in your location item. ");
+                locationItemsOption = sc.nextLine();
+                System.out.println("You have entered: " + locationItemsOption);
+                addLocation.put("locationItems", locationItemsOption);
+
+
+                jsonArray.add(addLocation);
+                System.out.println("Your options have been added to the list ");
+                System.out.println(jsonArray);
+
+                FileWriter file = new FileWriter("location.json");
+                file.write(jsonArray.toJSONString());
+                file.flush();
+                file.close();
+
+            } catch (ParseException | IOException e) {
+                e.printStackTrace();
+            }
         } else if (input.equals("N")) {
             System.out.println("No additions were made. ");
         } else {
