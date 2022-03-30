@@ -16,7 +16,7 @@ public class ReadLocations
 
         JSONParser jsonparser = new JSONParser();
 
-        try (FileReader reader = new FileReader("/Users/jr/Desktop/House of Madness/location.json")) {
+        try (FileReader reader = new FileReader("location.json")) {
             Object obj = jsonparser.parse(reader);
 
             JSONArray locationsList = (JSONArray) obj;
@@ -35,17 +35,17 @@ public class ReadLocations
     {
         JSONObject locationsObject= (JSONObject) locations.get("location");
 
-        String locationName = (String) locationsObject.get("locationName");
-        System.out.println("locationName: " + locationName);
+        String readLocationName = (String) locationsObject.get("locationName");
+        System.out.println("locationName: " + readLocationName);
 
-        String locationDescription = (String) locationsObject.get("locationDescription");
-        System.out.println("locationDescription: " + locationDescription);
+        String readLocationDescription = (String) locationsObject.get("locationDescription");
+        System.out.println("locationDescription: " + readLocationDescription);
 
-        String locationItems = (String) locationsObject.get("locationItems");
-        System.out.println("locationItems: " + locationItems);
+        String readLocationItems = (String) locationsObject.get("locationItems");
+        System.out.println("locationItems: " + readLocationItems);
 
-        String locationDirections = (String) locationsObject.get("locationDirections");
-        System.out.println("locationDirections: " + locationDirections);
+        String readLocationDirections = (String) locationsObject.get("locationDirections");
+        System.out.println("locationDirections: " + readLocationDirections);
 
     }
 }

@@ -34,7 +34,7 @@ public class AddLocations {
 
         if (input.equals("Y")) {
         try {
-            Object obj = jsonParser.parse(new FileReader("/Users/jr/Desktop/House of Madness/location.json"));
+            Object obj = jsonParser.parse(new FileReader("location.json"));
             JSONArray jsonArray = (JSONArray)obj;
 
             System.out.println(jsonArray);
@@ -65,7 +65,7 @@ public class AddLocations {
             System.out.println("Your options have been added to the list ");
             System.out.println(jsonArray);
 
-            FileWriter file = new FileWriter("/Users/jr/Desktop/House of Madness/location.json");
+            FileWriter file = new FileWriter("location.json");
             file.write(jsonArray.toJSONString());
             file.flush();
             file.close();
