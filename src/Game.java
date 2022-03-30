@@ -1,216 +1,252 @@
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
-import java.io.FileReader;
 import java.io.IOException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Random;
+import java.util.Scanner;
 
 public class Game {
     private List<Item> items;
     private List<Location> locations;
-    private Player player;
 
-    public Game(Location location, Player player) throws IOException, ParseException {
-        this.locations = new ArrayList<>();
-        this.player = player;
-        this.items = new ArrayList<>();
-        populateLocationsFromJson();
-        populateItemsFromJson();
-    }
+    private Player player;
+    private List<Item> inventory;
 
     public Game() throws IOException, ParseException {
         this.locations = new ArrayList<>();
         this.items = new ArrayList<>();
-        populateLocationsFromJson();
-        populateItemsFromJson();
+        this.inventory = new ArrayList<>();
         this.player = new Player();
-        this.playGame();
+
+        JsonHelper jsonhelper = new JsonHelper();
+        locations = jsonhelper.readLocationsFromJson();
+        items = jsonhelper.populateItemsFromJson();
     }
 
-    private void playGame() {
-        boolean isOver = false;
+    public void playGame() {
+        Scanner sc = new Scanner(System.in);
+        if (!shouldPlay(sc)) {
+            return;
+        }
+
+        System.out.println("Enter your name: ");
+        String name = sc.nextLine();
+        player.setName(name);
+
         Random random = new Random();
         int locationsSize = this.locations.size();
-        Location location = locations.get(random.nextInt(locationsSize));
-        Scanner sc = new Scanner(System.in);
-        String choice;
-        String name;
+        Location currentLocation = locations.get(random.nextInt(locationsSize));
 
-        Scanner myScanner = new Scanner(System.in);
-        String introArt = """
-                               )
-                             ( _   _._              WELCOME TO THE HOUSE OF MADNESS!
-                              |_|-'_~_`-._
-                           _.-'-_~_-~_-~-_`-._                 Authors:
-                       _.-'_~-_~-_-~-_~_~-_~-_`-._          Justin Peebles
-                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~         Vernon Stephens
-                        |  []       []       [] |            Maria Nieves
-                        |           __    ___   |
-                      ._|  []      | .|  [___]  |_._._._._._._._._._._._._._._._._.
-                      |=|________()|__|()_______|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|
-                    ^^^^^^^^^^^^^^^ === ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-                 You are an aspiring Software Developer. You just landed an interview
-                 with Amazon. Despite any unexpected encounters you may face, you MUST
-                 complete the given assessment in time.
+        while (true) {
 
-                ======================================================================
-                """;
+            System.out.println("________________________");
+            List<String> verbs = new ArrayList<>(Arrays.asList(
+                    "take", "drop", "look", "run", "go"));
+            List<String> nouns = new ArrayList<>(Arrays.asList("north", "south", "east", "west","sword", "laptop", "away"));
+            System.out.println("Here are some examples of verbs you can use for the game: ");
+            System.out.println(verbs);
+            System.out.println("Here are some examples of nouns you can use for the game: ");
+            System.out.println(nouns);
+            System.out.println("IMPORTANT! Use a combination of a noun and a verb to interact in the game. For example (go north) ");
+            System.out.println("_______________________________________________________________________________________");
 
-        while(!isOver) {
-            System.out.println(introArt);
-            System.out.println("Enter your name: ");
-            name = sc.nextLine();
-            System.out.println("Hello " + name + "! Welcome to the House of Madness.\n" +
-                    "Are you ready to enter? [y/n]");
-            choice = sc.nextLine();
-            System.out.println("__________________");
-            if (choice.equals("y")) {
-                System.out.println("Insert story intro here.");
-                System.out.println("________________________");
+            List<LocationItem> locationItems = currentLocation.getLocationItems();
+            List<LocationDirection> locationDirections = currentLocation.getLocationDirections();
 
-                List<String> verbs = new ArrayList<>(Arrays.asList(
-                        "take", "drop", "look", "run", "go"));
-                List<String> nouns = new ArrayList<>(Arrays.asList("north", "south", "east", "west","sword", "laptop", "away"));
-                System.out.println("Here are some examples of verbs you can use for the game: ");
-                System.out.println(verbs);
-                System.out.println("Here are some examples of nouns you can use for the game: ");
-                System.out.println(nouns);
-                System.out.println("IMPORTANT! Use a combination of a noun and a verb to interact in the game. For example (go north) ");
-                System.out.println("_______________________________________________________________________________________");
+            System.out.println("--------------------------------------------");
+            System.out.println("          " + player.getName() + ", you are in: " + currentLocation.getLocationName());
+            System.out.println("--------------------------------------------");
 
-                System.out.println("You are standing in " + location.getLocationName());
-                List<LocationItem> locationItems = location.getLocationItems();
-                System.out.println("You see these items with these corresponding actions: [" + locationItems.toString() + "]");
-                System.out.println("You have these movement options : [" + location.getLocationDirections().toString() + "]");
-                System.out.println("Will you use an item, or change location? [Item/item | Location/location]");
-                String typeOfAction = sc.next();
-                if (typeOfAction.toLowerCase().equals("Item".toLowerCase())) {
-                    System.out.println("Please pick one of the available items to use for the corresponding action: [" + locationItems.toString() + "]");
-                    String itemPicked = sc.next();
-                    for (int i = 0; i < locationItems.size(); i++) {
-                        if (locationItems.get(i).getName().equals(itemPicked)) {
-                            for (int j = 0; j < items.size(); j++) {
-                                if (items.get(j).getItemName().toLowerCase().equals(itemPicked.toLowerCase())) {
-                                    System.out.println("Action: " + items.get(j).getItemAttribute());
-                                    break;
-                                }
-                            }
-                        }
-                    }
-                } else if (typeOfAction.toLowerCase().equals("Location".toLowerCase())) {
-                    List<LocationDirections> locationDirections = location.getLocationDirections();
-                    System.out.println("Please pick one of the available location to go to: [" + locationDirections.toString() + "]");
-                    String locationPicked = sc.next();
-                    boolean locationFound = false;
-                    for (int i = 0; i < locationDirections.size(); i++) {
-                        if (locationPicked.toLowerCase().equals(locationDirections.get(i).getValue().toLowerCase()) ||
-                                locationPicked.toLowerCase().equals(locationDirections.get(i).getKey().toLowerCase())) {
-                            for (int k = 0; k < locations.size(); k++) {
-                                if (locations.get(k).getLocationName().toLowerCase().equals(locationPicked.toLowerCase())) {
-                                    location = locations.get(k);
-                                    locationFound = true;
-                                    break;
-                                }
-                                if (locationFound == true) {
-                                    break;
-                                }
-                            }
-                        }
-                        if (locationFound == true) {
-                            break;
-                        }
-                    }
-                    if (!locationFound) {
-                        System.out.println("I dont know where that is");
-                    }
-                } else if (typeOfAction.toLowerCase().equals("Exit".toLowerCase())) {
-                    System.out.println("Bye");
-                    return;
+            showMenuToPlayer(currentLocation);
+
+            int option = sc.nextInt();
+            sc.nextLine();
+
+            if (option == 1) {
+                // view items
+                showLocationItems(locationItems, currentLocation);
+            } else if (option == 2) {
+                // view locations reachable from here
+                showLocationDirections(locationDirections, currentLocation);
+            } else if (option == 3) {
+                // Show item details
+                System.out.println("Which item you want to see in detail?");
+                String itemName = sc.nextLine();
+                Item item = getItem(items, itemName);
+                if (item == null) {
+                    System.out.println(itemName + " is not here.");
                 } else {
-                    System.out.println("I cant understand you");
+                    System.out.println(item);
                 }
-            } else if (choice.equals("n")) {
-                System.out.println("\nExiting game... ");
-                System.exit(0);
+                System.out.println();
+            } else if (option == 4) {
+                //Show location details
+                System.out.println("Which location you want to see in detail?");
+                String locationName = sc.nextLine();
+                Location location = getLocation(locations, locationName);
+                if (location == null) {
+                    System.out.println(locationName + " is not here.");
+                } else {
+                    System.out.println(locationName + " details:");
+                    System.out.println("Description: " + location.getLocationDescription());
+                    showLocationItems(location.getLocationItems(), location);
+                    showLocationDirections(location.getLocationDirections(), location);
+                }
+                System.out.println();
+            } else if (option == 5) {
+                // pick item
+                System.out.println("Which item you want to pick please?");
+                String itemName = sc.nextLine();
+                if (hasLocationItem(locationItems, itemName)) {
+                    Item item = getItem(items, itemName);
+                    if (inventory.contains(item)) {
+                        System.out.println("You already picked it up.");
+                    } else {
+                        System.out.println("You have picked up " + itemName);
+                        inventory.add(item);
+                    }
+                } else {
+                    System.out.println(itemName + " not found here");
+                }
+            } else if (option == 6) {
+                // use item
+                System.out.println("Which item you want to use?");
+                String itemName = sc.nextLine();
+                if (hasLocationItem(locationItems, itemName)) {
+                    Item item = getItem(items, itemName);
+                    if (inventory.contains(item)) {
+                        System.out.println("You are using " + itemName);
+                    }
+                } else {
+                    System.out.println(itemName + " not found here");
+                }
+            } else if (option == 7) {
+                // drop item
+                System.out.println("Which item do you want to drop?");
+                String itemName = sc.nextLine();
+                if (hasLocationItem(locationItems, itemName)) {
+                    Item item = getItem(items, itemName);
+                    if (inventory.contains(item)) {
+                        System.out.println("You have dropped the " + itemName);
+                        inventory.remove(item);
+                    } else {
+                        System.out.println("Item is not in inventory");
+                    }
+                } else {
+                    System.out.println(itemName + " not found here");
+                }
+            } else if (option == 8) {
+                // Show inventory
+                if (inventory.isEmpty()) {
+                    System.out.println("Inventory is empty");
+                } else {
+                    for (Item item : inventory) {
+                        System.out.println(item);
+                    }
+                }
+                System.out.println();
+            } else if (option == 9) {
+                // Go to a new location
+                System.out.println("Which location you want to go from here?");
+                String locName = sc.nextLine();
+                if (isReachable(locationDirections, locName)) {
+                    currentLocation = getLocation(locations, locName);
+                } else {
+                    System.out.println("That location is not reachable from here");
+                }
+            } else if (option == 10) {
+                System.out.println("Bye....");
+                return;
+            } else {
+                System.out.println("Invalid option. Try again.");
+            }
+        }
+    }
+
+    private boolean shouldPlay(Scanner sc) {
+        System.out.println(TextImages.getIntroArt());
+        System.out.println("Are you ready to enter? [y/n]");
+
+        while (true) {
+            String choice = sc.nextLine();
+            if (choice.equals("n")) {
+                System.out.println("Exiting game...");
+                return false;
+            } else if (choice.equals("y")) {
+                return true;
             } else {
                 System.out.println("Invalid entry. [y/n]");
             }
         }
     }
 
-    public void populateLocationsFromJson() throws IOException, ParseException {
-        JSONParser parser = new JSONParser();
-
-        JSONArray a = (JSONArray) parser.parse(new FileReader("location.json"));
-
-        for (Object o : a)
-        {
-
-            JSONObject locationObj = (JSONObject) o;
-            Map<String, String> location = (Map<String, String>) locationObj.get("location");
-            String locationName = location.get("locationName");
-            String locationDescription = location.get("locationDescription");
-
-            JSONArray locationItemsJSONArr = (JSONArray) ((Map<?, ?>) locationObj.get("location")).get("locationItems");
-            List<LocationItem> locationItems = new ArrayList<>();
-            for (int i = 0; i < locationItemsJSONArr.size(); i++) {
-                String currentItemName = locationItemsJSONArr.get(i).toString();
-                int startIndex = currentItemName.indexOf(":") + 2;
-                int endIndex = currentItemName.length() - 2;
-                String itemName = currentItemName.substring(startIndex, endIndex);
-                locationItems.add(new LocationItem(itemName));
+    private Item getItem(List<Item> items, String name) {
+        for (Item item : items) {
+            if (item.getItemName().equalsIgnoreCase(name)) {
+                return item;
             }
-
-
-            JSONObject locationDirectionsJsonObj = (JSONObject) ((Map<?, ?>) locationObj.get("location")).get("locationDirections");
-            List<LocationDirections> locationDirections = new ArrayList<>();
-
-
-            for (Iterator iterator = locationDirectionsJsonObj.keySet().iterator(); iterator.hasNext();) {
-                String key = (String) iterator.next();
-                String val = (String) locationDirectionsJsonObj.get(key);
-                locationDirections.add(new LocationDirections(key.trim(), val.trim()));
-            }
-            locations.add(new Location(locationName, locationDescription, locationItems, locationDirections));
         }
+        return null;
     }
 
-    public void populateItemsFromJson() throws IOException, ParseException {
-        JSONParser parser = new JSONParser();
-
-        JSONArray a = (JSONArray) parser.parse(new FileReader("item.json"));
-
-        for (int i = 0; i < a.size(); i++) {
-            JSONObject val = (JSONObject) a.get(i);
-            for (Iterator iterator = val.keySet().iterator(); iterator.hasNext(); ) {
-                String key = (String) iterator.next();
-
-                String o = val.get(key).toString();
-                int startIndex = o.indexOf(":");
-                int endIndex = o.indexOf(",");
-                String itemName = o.substring(startIndex + 2, endIndex - 1);
-
-                o = o.substring(endIndex + 1);
-                startIndex = o.indexOf(":");
-                endIndex = o.indexOf(",");
-                String itemDescription = o.substring(startIndex + 2, endIndex - 1);
-
-                o = o.substring(endIndex + 1);
-                startIndex = o.indexOf(":");
-                endIndex = o.indexOf(",");
-                String itemLocation = o.substring(startIndex + 2, endIndex - 1);
-
-                o = o.substring(endIndex + 1);
-                startIndex = o.indexOf(":");
-                endIndex = o.length() - 2;
-                o = o.substring(startIndex, endIndex);
-                startIndex = 1;
-                endIndex = o.length();
-                String itemAttribute = o.substring(startIndex + 1, endIndex);
-
-                items.add(new Item(itemName, itemDescription, itemAttribute, itemLocation));
+    private boolean hasLocationItem(List<LocationItem> locationItems, String name) {
+        for (LocationItem locationItem : locationItems) {
+            if (locationItem.getName().equalsIgnoreCase(name)) {
+                return true;
             }
         }
+        return false;
+    }
+
+    private Location getLocation(List<Location> locations, String name) {
+        for (Location location : locations) {
+            if (location.getLocationName().equalsIgnoreCase(name)) {
+                return location;
+            }
+        }
+        return null;
+    }
+
+    private boolean isReachable(List<LocationDirection> locationDirections, String locName) {
+        for (LocationDirection locationDirection : locationDirections) {
+            if (locationDirection.getValue().equalsIgnoreCase(locName)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private void showLocationDirections(List<LocationDirection> locationDirections, Location currentLocation) {
+        System.out.println("You can go below places from " + currentLocation.getLocationName() + ": ");
+        for (int i = 0; i < locationDirections.size(); i++) {
+            LocationDirection locationDirection = locationDirections.get(i);
+            System.out.println("    " + (i + 1) + ". " + locationDirection);
+        }
+        System.out.println();
+    }
+
+    private void showLocationItems(List<LocationItem> locationItems, Location currentLocation) {
+        System.out.println("Items here in: " + currentLocation.getLocationName());
+        for (int i = 0; i < locationItems.size(); i++) {
+            LocationItem locationItem = locationItems.get(i);
+            System.out.println("    " + (i + 1) + ". " + locationItem);
+        }
+        System.out.println();
+    }
+
+    private void showMenuToPlayer(Location currentLocation) {
+        System.out.println("Choose your action: ");
+        System.out.println("    1. View items at " + currentLocation.getLocationName());
+        System.out.println("    2. View neighbour locations for " + currentLocation.getLocationName());
+        System.out.println("    3. Show item details");
+        System.out.println("    4. Show location details");
+        System.out.println("    5. Pick item");
+        System.out.println("    6. Use Item");
+        System.out.println("    7. Drop Item");
+        System.out.println("    8. Show inventory");
+        System.out.println("    9. Go to a new location");
+        System.out.println("    10. Exit");
+
     }
 }

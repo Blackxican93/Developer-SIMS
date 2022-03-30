@@ -17,8 +17,6 @@ public class LocationItem {
 
     @Override
     public String toString() {
-        return "LocationItem{" +
-                "name='" + name + '\'' +
-                '}';
+        return name;
     }
 }
