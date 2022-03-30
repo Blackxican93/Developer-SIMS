@@ -103,12 +103,40 @@ public class Game {
                     if (inventory.contains(item)) {
                         System.out.println("You already picked it up.");
                     } else {
+                        System.out.println("You have picked up " + itemName);
                         inventory.add(item);
                     }
                 } else {
                     System.out.println(itemName + " not found here");
                 }
             } else if (option == 6) {
+                // use item
+                System.out.println("Which item you want to use?");
+                String itemName = sc.nextLine();
+                if (hasLocationItem(locationItems, itemName)) {
+                    Item item = getItem(items, itemName);
+                    if (inventory.contains(item)) {
+                        System.out.println("You are using " + itemName);
+                    }
+                } else {
+                    System.out.println(itemName + " not found here");
+                }
+            } else if (option == 7) {
+                // drop item
+                System.out.println("Which item do you want to drop?");
+                String itemName = sc.nextLine();
+                if (hasLocationItem(locationItems, itemName)) {
+                    Item item = getItem(items, itemName);
+                    if (inventory.contains(item)) {
+                        System.out.println("You have dropped the " + itemName);
+                        inventory.remove(item);
+                    } else {
+                        System.out.println("Item is not in inventory");
+                    }
+                } else {
+                    System.out.println(itemName + " not found here");
+                }
+            } else if (option == 8) {
                 // Show inventory
                 if (inventory.isEmpty()) {
                     System.out.println("Inventory is empty");
@@ -118,7 +146,7 @@ public class Game {
                     }
                 }
                 System.out.println();
-            } else if (option == 7) {
+            } else if (option == 9) {
                 // Go to a new location
                 System.out.println("Which location you want to go from here?");
                 String locName = sc.nextLine();
@@ -127,7 +155,7 @@ public class Game {
                 } else {
                     System.out.println("That location is not reachable from here");
                 }
-            } else if (option == 8) {
+            } else if (option == 10) {
                 System.out.println("Bye....");
                 return;
             } else {
@@ -214,8 +242,11 @@ public class Game {
         System.out.println("    3. Show item details");
         System.out.println("    4. Show location details");
         System.out.println("    5. Pick item");
-        System.out.println("    6. Show inventory");
-        System.out.println("    7. Go to a new location");
-        System.out.println("    8. Exit");
+        System.out.println("    6. Use Item");
+        System.out.println("    7. Drop Item");
+        System.out.println("    8. Show inventory");
+        System.out.println("    9. Go to a new location");
+        System.out.println("    10. Exit");
+
     }
 }
