@@ -1,7 +1,7 @@
 import java.util.List;
 
-public class Location
-{
+
+public class Location {
     private String locationName;
     private String locationDescription;
     private List<LocationItem> locationItems;
@@ -15,7 +15,8 @@ public class Location
         this.locationDirections = locationDirections;
     }
 
-    public Location() {}
+    public Location() {
+    }
 
 
     public String getLocationName() {

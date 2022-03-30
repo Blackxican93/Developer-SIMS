@@ -9,14 +9,14 @@ import org.json.simple.parser.ParseException;
 
 
 
-public class gameCommands
+public class ReadGameCommands
 {
     @SuppressWarnings("unchecked")
     public static void main(String[] args) {
 
         JSONParser jsonparser = new JSONParser();
 
-        try (FileReader reader = new FileReader("gameCommands.json")) {
+        try (FileReader reader = new FileReader("/Users/jr/Desktop/House of Madness/gameCommands.json")) {
             Object obj = jsonparser.parse(reader);
 
             JSONArray commandsList = (JSONArray) obj;
