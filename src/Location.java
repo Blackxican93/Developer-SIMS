@@ -1,21 +1,22 @@
 import java.util.List;
 
-public class Location
-{
+
+public class Location {
     private String locationName;
     private String locationDescription;
     private List<LocationItem> locationItems;
-    private List<LocationDirection> locationDirections;
+    private List<LocationDirections> locationDirections;
 
 
-    public Location(String locationName, String locationDescription, List<LocationItem> locationItems, List<LocationDirection> locationDirections) {
+    public Location(String locationName, String locationDescription, List<LocationItem> locationItems, List<LocationDirections> locationDirections) {
         this.locationName = locationName;
         this.locationDescription = locationDescription;
         this.locationItems = locationItems;
         this.locationDirections = locationDirections;
     }
 
-    public Location() {}
+    public Location() {
+    }
 
 
     public String getLocationName() {
@@ -42,11 +43,11 @@ public class Location
         this.locationItems = locationItems;
     }
 
-    public List<LocationDirection> getLocationDirections() {
+    public List<LocationDirections> getLocationDirections() {
         return locationDirections;
     }
 
-    public void setLocationDirections(List<LocationDirection> locationDirections) {
+    public void setLocationDirections(List<LocationDirections> locationDirections) {
         this.locationDirections = locationDirections;
     }
 }

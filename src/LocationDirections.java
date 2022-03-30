@@ -1,12 +1,17 @@
-public class LocationDirection {
+import java.util.HashMap;
+import java.util.Map;
 
+
+public class LocationDirections {
     private String key;
-    private String value;
+    private String  value;
 
-    public LocationDirection(String key, String value) {
+
+    public LocationDirections(String key, String value) {
         this.key = key;
         this.value = value;
     }
+
 
     public String getKey() {
         return key;
@@ -26,6 +31,9 @@ public class LocationDirection {
 
     @Override
     public String toString() {
-        return value + " if you go " + key;
+        return "LocationDirections{" +
+                "key='" + key + '\'' +
+                ", value='" + value + '\'' +
+                '}';
     }
 }
