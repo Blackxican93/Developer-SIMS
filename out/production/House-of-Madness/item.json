@@ -3,48 +3,40 @@
     "item": {
       "itemName": "laptop",
       "itemDescription": "work laptop",
-      "itemAttribute": "perform work tasks",
-      "itemLocation": "office"
+      "itemLocation": "office",
+      "itemAttribute": "perform work tasks"
     }
   },
   {
     "item": {
       "itemName": "letter opened",
       "itemDescription": "small knife that opens envelopes",
-      "itemAttribute": " ... ",
-      "itemLocation": "office"
+      "itemLocation": "office",
+      "itemAttribute": " ... "
     }
   },
   {
     "item": {
       "itemName": "coffee",
       "itemDescription": "morning coffee",
-      "itemAttribute": "drink coffee",
-      "itemLocation": "kitchen"
+      "itemLocation": "kitchen",
+      "itemAttribute": "drink coffee"
     }
   },
   {
     "item": {
       "itemName": "bat",
       "itemDescription": "baseball bat",
-      "itemAttribute": "protection against intruders",
-      "itemLocation": "bedroom"
-    }
-  },
-  {
-    "item": {
-      "itemName": "bat",
-      "itemDescription": "baseball bat",
-      "itemAttribute": "protection against intruders",
-      "itemLocation": "bedroom"
+      "itemLocation": "bedroom",
+      "itemAttribute": "protection against intruders"
     }
   },
   {
     "item": {
       "itemName": "bed",
       "itemDescription": "king bed",
-      "itemAttribute": "go to sleep",
-      "itemLocation": "bedroom"
+      "itemLocation": "bedroom",
+      "itemAttribute": "go to sleep"
     }
   }
 ]

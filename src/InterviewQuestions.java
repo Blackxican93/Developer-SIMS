@@ -16,9 +16,9 @@ public class InterviewQuestions {
     public static void main(String[] args) throws FileNotFoundException, IOException, ParseException {
 
         JSONParser parser = new JSONParser();
-       JSONArray jsonArray = (JSONArray) parser.parse(new FileReader("Questions.json"));
+        JSONArray jsonArray = (JSONArray) parser.parse(new FileReader("/Users/jr/Desktop/House of Madness/Questions.json"));
 
-       for (Object o : jsonArray)
+        for (Object o : jsonArray)
         {
             JSONObject question = (JSONObject) o;
             //Q1

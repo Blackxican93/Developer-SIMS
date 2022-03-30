@@ -9,7 +9,7 @@ import org.json.simple.parser.ParseException;
 
 
 
-public class gameCommands
+public class ReadGameCommands
 {
     @SuppressWarnings("unchecked")
     public static void main(String[] args) {
