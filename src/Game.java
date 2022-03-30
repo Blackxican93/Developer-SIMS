@@ -60,6 +60,7 @@ public class Game {
 
             showMenuToPlayer(currentLocation);
 
+            //switch statement & .split()
             int option = sc.nextInt();
             sc.nextLine();
 
