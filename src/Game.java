@@ -72,8 +72,8 @@ public class Game {
             } else if (option == 3) {
                 // Show item details
                 System.out.println("Which item you want to see in detail?");
-                var itemName = sc.nextLine();
-                var item = getItem(items, itemName);
+                String itemName = sc.nextLine();
+                Item item = getItem(items, itemName);
                 if (item == null) {
                     System.out.println(itemName + " is not here.");
                 } else {
@@ -83,8 +83,8 @@ public class Game {
             } else if (option == 4) {
                 //Show location details
                 System.out.println("Which location you want to see in detail?");
-                var locationName = sc.nextLine();
-                var location = getLocation(locations, locationName);
+                String locationName = sc.nextLine();
+                Location location = getLocation(locations, locationName);
                 if (location == null) {
                     System.out.println(locationName + " is not here.");
                 } else {
@@ -97,7 +97,7 @@ public class Game {
             } else if (option == 5) {
                 // pick item
                 System.out.println("Which item you want to pick please?");
-                var itemName = sc.nextLine();
+                String itemName = sc.nextLine();
                 if (hasLocationItem(locationItems, itemName)) {
                     Item item = getItem(items, itemName);
                     if (inventory.contains(item)) {
@@ -121,7 +121,7 @@ public class Game {
             } else if (option == 7) {
                 // Go to a new location
                 System.out.println("Which location you want to go from here?");
-                var locName = sc.nextLine();
+                String locName = sc.nextLine();
                 if (isReachable(locationDirections, locName)) {
                     currentLocation = getLocation(locations, locName);
                 } else {
@@ -192,7 +192,7 @@ public class Game {
     private void showLocationDirections(List<LocationDirection> locationDirections, Location currentLocation) {
         System.out.println("You can go below places from " + currentLocation.getLocationName() + ": ");
         for (int i = 0; i < locationDirections.size(); i++) {
-            var locationDirection = locationDirections.get(i);
+            LocationDirection locationDirection = locationDirections.get(i);
             System.out.println("    " + (i + 1) + ". " + locationDirection);
         }
         System.out.println();
@@ -201,7 +201,7 @@ public class Game {
     private void showLocationItems(List<LocationItem> locationItems, Location currentLocation) {
         System.out.println("Items here in: " + currentLocation.getLocationName());
         for (int i = 0; i < locationItems.size(); i++) {
-            var locationItem = locationItems.get(i);
+            LocationItem locationItem = locationItems.get(i);
             System.out.println("    " + (i + 1) + ". " + locationItem);
         }
         System.out.println();
