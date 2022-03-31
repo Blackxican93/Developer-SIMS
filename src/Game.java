@@ -1,10 +1,9 @@
 import org.json.simple.parser.ParseException;
+
+import java.io.BufferedReader;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Random;
-import java.util.Scanner;
+import java.io.InputStreamReader;
+import java.util.*;
 
 public class Game {
     private List<Item> items;
@@ -235,6 +234,7 @@ public class Game {
         System.out.println();
     }
 
+
     private void showMenuToPlayer(Location currentLocation) {
         System.out.println("Choose your action: ");
         System.out.println("    1. View items at " + currentLocation.getLocationName());
@@ -249,4 +249,5 @@ public class Game {
         System.out.println("    10. Exit");
 
     }
+
 }
