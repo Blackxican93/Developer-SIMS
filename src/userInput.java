@@ -10,8 +10,14 @@ public class userInput {
     public static void parseCommand(List<String> wordlist) {
         String verb;
         String noun;
-        List<String> verbs = new ArrayList<>(Arrays.asList("take", "drop", "look", "run", "go"));
+
+        List<String> verbs = new ArrayList<>(Arrays.asList(
+                "take", "drop", "look", "run", "go",
+                "grasp", "fall", "glance", "sprint", "move",
+                "extract", "deposit", "survey", "race", "travel",
+                "draw", "set", "down", "scurry", "leave"));
         List<String> nouns = new ArrayList<>(Arrays.asList("north", "south", "east", "west", "sword", "laptop"));
+
 
         if (wordlist.size() != 2) {
             System.out.println("Only 2 word commands allowed!");
@@ -24,6 +30,7 @@ public class userInput {
             if (!nouns.contains(noun)) {
                 System.out.println(noun + " is not a known noun!");
             }
+
         }
     }
 
@@ -42,7 +49,7 @@ public class userInput {
 
     public static String runCommand(String inputString) {
         List<String> wl;
-        String s = "ok";
+        String s = "next command";
         String lowString = inputString.trim().toLowerCase();
 
         if (!lowString.equals("q")) {
