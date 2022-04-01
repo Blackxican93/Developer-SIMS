@@ -1,0 +1,5 @@
+A variable data type in which the variable's value is of the appropriate size and format for its type.
+primitive type
+privilege
+secondary type
+class

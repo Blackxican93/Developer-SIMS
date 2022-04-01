@@ -1,0 +1,5 @@
+A collection of data items, all of the same type, in which each item's position is uniquely designed by an integer?
+abstract
+array
+autoboxing
+integer

@@ -1,0 +1,5 @@
+A data item known within a block, but inaccessible to code outside the block.
+instance variable
+local variable
+the best variable
+method
