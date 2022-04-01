@@ -1,4 +1,4 @@
-public class LocationItem {
+public class LocationItem implements java.io.Serializable{
     private String name;
 
     public LocationItem(String name) {

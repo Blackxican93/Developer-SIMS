@@ -1,4 +1,4 @@
-public class LocationDirection {
+public class LocationDirection implements java.io.Serializable{
 
     private String key;
     private String value;

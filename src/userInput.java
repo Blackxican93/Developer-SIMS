@@ -6,7 +6,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.StringTokenizer;
 
-public class userInput {
+public class userInput implements java.io.Serializable{
     public static void parseCommand(List<String> wordlist) {
         String verb;
         String noun;

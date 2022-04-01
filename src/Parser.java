@@ -3,7 +3,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 
-public class Parser {
+public class Parser implements java.io.Serializable{
 
     static List<String> verbs = new ArrayList<>(Arrays.asList(
             "go", "take", "drop", "look", "l", "i", "inventory"));

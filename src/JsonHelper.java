@@ -10,7 +10,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
-public class JsonHelper {
+public class JsonHelper implements java.io.Serializable{
 
     public List<Location> readLocationsFromJson() throws IOException, ParseException {
 

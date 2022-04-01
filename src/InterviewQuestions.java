@@ -11,7 +11,7 @@ import org.json.simple.parser.ParseException;
 
 
 
-public class InterviewQuestions {
+public class InterviewQuestions implements java.io.Serializable{
 
     public static void main(String[] args) throws FileNotFoundException, IOException, ParseException {
 

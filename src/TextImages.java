@@ -1,4 +1,4 @@
-public class TextImages {
+public class TextImages implements java.io.Serializable{
 
     public static String getIntroArt() {
         String introArt = """

@@ -1,4 +1,4 @@
-public class Item {
+public class Item implements java.io.Serializable{
 
     private String itemName;
     private String itemDescription;
@@ -6,7 +6,7 @@ public class Item {
 //    private String itemLocation;
 
     @SuppressWarnings("unchecked")
-    public Item(String itemName, String itemDescription, String itemAttribute, String itemLocation) {
+    public Item (String itemName, String itemDescription, String itemAttribute, String itemLocation) {
         this.itemName = itemName;
         this.itemDescription = itemDescription;
 //        this.itemAttribute = itemAttribute;

@@ -9,7 +9,7 @@ import org.json.simple.parser.ParseException;
 
 
 
-public class ReadGameCommands
+public class ReadGameCommands implements java.io.Serializable
 {
     @SuppressWarnings("unchecked")
     public static void main(String[] args) {
