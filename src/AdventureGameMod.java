@@ -8,10 +8,10 @@ import java.io.InputStreamReader;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
-public class AdventureGame {
+public class AdventureGameMod {
 
     static Game game;
-
+    //add extends to every class needed in order to save
     private static void saveGame() {
         try {
             FileOutputStream fos = new FileOutputStream("Adv.txt");
