@@ -1,0 +1,5 @@
+An event during program execution that prevents the program from continuing normally; an error
+extends
+exception
+identifier
+inheritance

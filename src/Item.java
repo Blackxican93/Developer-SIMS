@@ -2,15 +2,15 @@ public class Item {
 
     private String itemName;
     private String itemDescription;
-    private String itemAttribute;
-    private String itemLocation;
+//    private String itemAttribute;
+//    private String itemLocation;
 
     @SuppressWarnings("unchecked")
     public Item(String itemName, String itemDescription, String itemAttribute, String itemLocation) {
         this.itemName = itemName;
         this.itemDescription = itemDescription;
-        this.itemAttribute = itemAttribute;
-        this.itemLocation = itemLocation;
+//        this.itemAttribute = itemAttribute;
+//        this.itemLocation = itemLocation;
     }
 
 
@@ -30,27 +30,27 @@ public class Item {
         this.itemDescription = itemDescription;
     }
 
-    public String getItemAttribute() {
-        return itemAttribute;
-    }
+//    public String getItemAttribute() {
+//        return itemAttribute;
+//    }
 
-    public void setItemAttribute(String itemAttribute) {
-        this.itemAttribute = itemAttribute;
-    }
+//    public void setItemAttribute(String itemAttribute) {
+//        this.itemAttribute = itemAttribute;
+//    }
 
-    public String getItemLocation() {
-        return itemLocation;
-    }
+//    public String getItemLocation() {
+//        return itemLocation;
+//    }
 
-    public void setItemLocation(String itemLocation) {
-        this.itemLocation = itemLocation;
-    }
+//    public void setItemLocation(String itemLocation) {
+//        this.itemLocation = itemLocation;
+//    }
 
     @Override
     public String toString() {
         return  "Name='" + itemName + '\'' +
-                ", Description='" + itemDescription + '\'' +
-                ", Attribute='" + itemAttribute + '\'' +
-                ", Location='" + itemLocation + '\'';
+                ", Description='" + itemDescription + '\'';
+//                ", Attribute='" + itemAttribute + '\'' +
+//                ", Location='" + itemLocation + '\'';
     }
 }
