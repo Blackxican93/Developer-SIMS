@@ -1,8 +1,6 @@
 import org.json.simple.parser.ParseException;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.*;
 
 public class Game {
@@ -250,4 +248,13 @@ public class Game {
 
     }
 
+    public void showIntro() {
+    }
+
+    public String runCommand(String input) {
+        return input;
+    }
+
+    public void showStr(String output) {
+    }
 }
