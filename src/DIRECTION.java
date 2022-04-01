@@ -1,4 +1,4 @@
-public enum DIRECTION {
+public enum DIRECTION implements java.io.Serializable{
     NORTH,
     SOUTH,
     EAST,

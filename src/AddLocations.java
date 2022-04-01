@@ -13,7 +13,7 @@ import org.json.simple.parser.ParseException;
 
 
 
-public class AddLocations {
+public class AddLocations implements java.io.Serializable{
     static String input = "";
     static String locationNameOption = "";
     static String locationDescriptionOption = "";

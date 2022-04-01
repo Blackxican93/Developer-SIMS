@@ -10,7 +10,7 @@ import org.json.simple.parser.ParseException;
 
 
 
-public class AddItems {
+public class AddItems implements java.io.Serializable{
     static String input = "";
     static String itemNameOption = "";
     static String itemDescriptionOption = "";

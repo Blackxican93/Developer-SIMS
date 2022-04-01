@@ -9,7 +9,7 @@ import org.json.simple.parser.ParseException;
 
 
 
-public class ReadLocations
+public class ReadLocations implements java.io.Serializable
 {
     @SuppressWarnings("unchecked")
     public static void main(String[] args) {

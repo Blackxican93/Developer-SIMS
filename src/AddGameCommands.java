@@ -10,7 +10,7 @@ import org.json.simple.parser.ParseException;
 
 
 
-public class AddGameCommands {
+public class AddGameCommands implements java.io.Serializable{
     static String input = "";
     static String commandNameOption = "";
     static String commandDescriptionOption = "";
