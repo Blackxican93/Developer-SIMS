@@ -27,27 +27,29 @@ public class JsonHelper {
             String locationName = location.get("locationName");
             String locationDescription = location.get("locationDescription");
 
-            JSONArray locationItemsJSONArr = (JSONArray) ((Map<?, ?>) locationObj.get("location")).get("locationItems");
-            List<LocationItem> locationItems = new ArrayList<>();
-            for (int i = 0; i < locationItemsJSONArr.size(); i++) {
-                String currentItemName = locationItemsJSONArr.get(i).toString();
-                int startIndex = currentItemName.indexOf(":") + 2;
-                int endIndex = currentItemName.length() - 2;
-                String itemName = currentItemName.substring(startIndex, endIndex);
-                locationItems.add(new LocationItem(itemName));
-            }
+//            JSONArray locationItemsJSONArr = (JSONArray) ((Map<?, ?>) locationObj.get("location")).get("locationItems");
+////            List<LocationItem> locationItems = new ArrayList<>();
+//            for (int i = 0; i < locationItemsJSONArr.size(); i++) {
+//                String currentItemName = locationItemsJSONArr.get(i).toString();
+//                int startIndex = currentItemName.indexOf(":") + 2;
+//                int endIndex = currentItemName.length() - 2;
+//                String itemName = currentItemName.substring(startIndex, endIndex);
+////                locationItems.add(new LocationItem(itemName));
+//            }
 
 
-            JSONObject locationDirectionsJsonObj = (JSONObject) ((Map<?, ?>) locationObj.get("location")).get("locationDirections");
-            List<LocationDirection> locationDirections = new ArrayList<>();
+//            JSONObject locationDirectionsJsonObj = (JSONObject) ((Map<?, ?>) locationObj.get("location")).get("locationDirections");
+////            List<LocationDirection> locationDirections = new ArrayList<>();
+//
+//
+//            for (Iterator iterator = locationDirectionsJsonObj.keySet().iterator(); iterator.hasNext(); ) {
+//                String key = (String) iterator.next();
+//                String val = (String) locationDirectionsJsonObj.get(key);
+////                locationDirections.add(new LocationDirection(key.trim(), val.trim()));
+//            }
+//            locations.add(new Location(locationName, locationDescription, locationItems, locationDirections));
+            locations.add(new Location(locationName, locationDescription));
 
-
-            for (Iterator iterator = locationDirectionsJsonObj.keySet().iterator(); iterator.hasNext(); ) {
-                String key = (String) iterator.next();
-                String val = (String) locationDirectionsJsonObj.get(key);
-                locationDirections.add(new LocationDirection(key.trim(), val.trim()));
-            }
-            locations.add(new Location(locationName, locationDescription, locationItems, locationDirections));
         }
 
         return locations;
@@ -95,4 +97,7 @@ public class JsonHelper {
 
         return items;
     }
+
+
 }
+

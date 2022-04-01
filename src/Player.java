@@ -1,39 +1,17 @@
-import java.util.*;
-
-public class Player {
+public class Player extends ThingHolder implements java.io.Serializable {
 
     private Location location;
-    private List<Item> items;
-    private String name;
 
-    public Player() {
-        this.location = new Location();
-        this.items = new ArrayList<>();
-        this.name = "Default Player";
+    public Player(String aName, String aDescription, ThingList tl, Location aLocation) {
+        super(aName, aDescription, tl);
+        this.location = aLocation;
+    }
 
+    public void setLocation(Location aRoom) {
+        this.location = aRoom;
     }
 
     public Location getLocation() {
-        return location;
-    }
-
-    public void setLocation(Location location) {
-        this.location = location;
-    }
-
-    public List<Item> getItems() {
-        return items;
-    }
-
-    public void setItems(List<Item> items) {
-        this.items = items;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
+        return this.location;
     }
 }

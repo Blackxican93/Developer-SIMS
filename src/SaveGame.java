@@ -21,7 +21,7 @@ public class SaveGame {
             oos.close();
             System.out.print("Game saved\n");
         } catch (Exception e) {
-            System.out.print("Serialization Error! Can't save data.\n"
+            System.out.print("Can't save data.\n"
                     + e.getClass() + ": " + e.getMessage() + "\n");
         }
     }
@@ -34,7 +34,7 @@ public class SaveGame {
             ois.close();
             System.out.print("\n---Game loaded---\n");
         } catch (Exception e) {
-            System.out.print("Serialization Error! Can't load data.\n");
+            System.out.print("Can't load data.\n");
             System.out.print(e.getClass() + ": " + e.getMessage() + "\n");
         }
     }
