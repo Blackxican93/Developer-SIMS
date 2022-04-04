@@ -208,9 +208,7 @@ public class Game implements java.io.Serializable {
     void showIntro() {
         System.out.println(TextImages.getIntroArt());
         String s = "";
-        s = "You are an aspiring Software Developer. You just landed an interview\n"+
-                "with Amazon. Despite any unexpected encounters you may face, you MUST\n" +
-                "complete the given assessment in time.\n" +
+        s =
                 "WHEN YOU ARE READY TO PLAY THE GAME PLEASE SELECT [y]?\n" +
                 "REMEMBER: AT ANY POINT YOU CAN PRESS [n] TO SEE QUIT\n" +
                 "REMEMBER: AT ANY POINT YOU CAN PRESS [x] TO SEE MENU OPTIONS";
@@ -224,9 +222,14 @@ public class Game implements java.io.Serializable {
         JSONParser parser = new JSONParser();
         JSONArray jsonArray = (JSONArray) parser.parse(new FileReader("Questions.json"));
 
-        System.out.println("Congratulations on making the first step to becoming an Amazon Software Developer! You will be prompted with 6 multiple answer questions on Java. Good luck and avoid any interruptions! ");
-        int lives = 3;
-        boolean won = false;
+        System.out.println("Congratulations on making the first step to becoming an Amazon Software Developer! You will be prompted with 6 multiple answer questions on Java.");
+        System.out.println("Good luck and avoid any interruptions! ");
+        System.out.println("Plot Twist! ");
+        System.out.println("____________");
+        System.out.println("There is a Java monster named Gosling lurking. He does not like incorrect answers on Java and demands perfection. ");
+        System.out.println("You need a perfect score to pass the interview. Oh and....the monster will kill you if you don't get every question right.");
+        System.out.println("___________________________________________________________________________________________________________________________");
+        Integer scoreCount = 0;
 
         for (Object o : jsonArray) {
             JSONObject question = (JSONObject) o;
@@ -250,10 +253,11 @@ public class Game implements java.io.Serializable {
             System.out.println("You've entered: " + answer);
 
             if (answer.equals("A")) {
-                System.out.println("Correct! ");
+                scoreCount += 1;
+                System.out.println("Correct! You now have " + scoreCount + "points");
             }
             else {
-                System.out.println("Wrong answer Yo! Maybe you should study more.");
+                System.out.println("Wrong answer Yo! The Java monster is getting closer! Keep going, maybe he'll let you live. ");
             }
 
             //Q2
@@ -275,10 +279,11 @@ public class Game implements java.io.Serializable {
             System.out.println("You've entered: " + answer);
 
             if (answer.equals("B")) {
-                System.out.println("Correct! ");
+                scoreCount += 1;
+                System.out.println("Correct! You now have " + scoreCount + "points");
             }
             else {
-                System.out.println("Wrong answer Yo! Maybe you should study more.");
+                System.out.println("Wrong answer Yo! The Java monster is getting closer! Keep going, maybe he'll let you live. ");
             }
 
             //Q3
@@ -300,10 +305,11 @@ public class Game implements java.io.Serializable {
             System.out.println("You've entered: " + answer);
 
             if (answer.equals("B")) {
-                System.out.println("Correct! ");
+                scoreCount += 1;
+                System.out.println("Correct! You now have " + scoreCount + "points");
             }
             else {
-                System.out.println("Wrong answer Yo! Maybe you should study more.");
+                System.out.println("Wrong answer Yo! The Java monster is getting closer! Keep going, maybe he'll let you live. ");
             }
 
             //Q4
@@ -325,10 +331,11 @@ public class Game implements java.io.Serializable {
             System.out.println("You've entered: " + answer);
 
             if (answer.equals("B")) {
-                System.out.println("Correct! ");
+                scoreCount += 1;
+                System.out.println("Correct! You now have " + scoreCount + "points");
             }
             else {
-                System.out.println("Wrong answer Yo! Maybe you should study more.");
+                System.out.println("Wrong answer Yo! The Java monster is getting closer! Keep going, maybe he'll let you live. ");
             }
 
             //Q5
@@ -350,10 +357,11 @@ public class Game implements java.io.Serializable {
             System.out.println("You've entered: " + answer);
 
             if (answer.equals("A")) {
-                System.out.println("Correct! ");
+                scoreCount += 1;
+                System.out.println("Correct! You now have " + scoreCount + "points");
             }
             else {
-                System.out.println("Wrong answer Yo! Maybe you should study more.");
+                System.out.println("Wrong answer Yo! The Java monster is getting closer! Keep going, maybe he'll let you live. ");
             }
 
             //Q6
@@ -375,13 +383,20 @@ public class Game implements java.io.Serializable {
             System.out.println("You've entered: " + answer);
 
             if (answer.equals("A")) {
-                System.out.println("Correct! ");
+                scoreCount += 1;
+                System.out.println("Correct! You now have " + scoreCount + "points");
             }
             else {
-                System.out.println("Wrong answer Yo! Maybe you should study more. ");
+                System.out.println("Wrong answer Yo! The Java monster is getting closer! Keep going, maybe he'll let you live. ");
             }
         }
 
+        if(scoreCount == 6){
+            System.out.println("Congratulations on getting a perfect score! Your Amazon recruiter Kevin Greene will be reaching out to you shortly. Pending any paperwork issues, welcome to the Amazon Team! ");
+    }
+        else {
+            System.out.println("Better luck next time! Unfortunately you did not pass the mandatory requirement. Oh ya...and you died by the hands of the Java monster.");
+        }
     }
     private void showMenuToPlayer() {
         String s;
