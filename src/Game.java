@@ -269,6 +269,7 @@ public class Game implements java.io.Serializable {
                 "SELECT [n] TO QUIT THE GAME \n" +
                 "SELECT [x] TO SEE MENU OPTIONS\n" +
                 "Or ENTER A COMMAND";
+
         showStr(s);
     }
     void InterviewQuestions() throws IOException, ParseException {
@@ -470,6 +471,8 @@ public class Game implements java.io.Serializable {
                 "10. Get information about a given room\n" +
                 "11. Get information about a given item\n" +
                 "12. View Game introduction\n" +
+
+
                 "";
         System.out.println(s);
     }
@@ -563,6 +566,8 @@ public class Game implements java.io.Serializable {
                         break;
                     default:
                         System.out.println("Please enter 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, or 12");
+
+                        showIntro();
                         break;
                 }
             } else {
