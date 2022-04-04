@@ -1,88 +1,121 @@
 [
   {
     "location": {
-      "locationName": "bedroom",
-      "locationDescription": "sleep in here",
+      "locationName": "Bedroom",
+      "locationDescription": "A room situated within a residential or accommodation unit characterised by its usage for sleeping",
       "locationItems": [
         {
-          "itemName": "bat"
+          "itemName": "NightStand"
         },
         {
-          "itemName": "bed"
+          "itemName": "KingBed"
+        },
+        {
+          "itemName": "AlarmClock"
+        },
+        {
+          "itemName": "ToxicBomb"
         }
       ],
       "locationDirections": {
-        "south": "bathroom",
-        "east": "office"
+        "south": "Bathroom",
+        "east": "Office"
       }
     }
   },
   {
     "location": {
-      "locationName": "office",
-      "locationDescription": "work in here",
+      "locationName": "Office",
+      "locationDescription": "A space where an you perform administrative work in order to support the goals of your organization",
       "locationItems": [
         {
-          "itemName": "laptop"
+          "itemName": "Laptop"
         },
         {
-          "itemName": "letter opener"
+          "itemName": "LetterOpener"
+        },
+        {
+          "itemName": "Machete"
+        },
+        {
+          "itemName": "Printer"
         }
       ],
       "locationDirections": {
-        "west": "bedroom",
-        "south": "kitchen"
+        "west": "Bedroom",
+        "south": "Kitchen"
       }
     }
   },
   {
     "location": {
-      "locationName": "kitchen",
-      "locationDescription": "cook in here",
+      "locationName": "Kitchen",
+      "locationDescription": "A a room used for cooking and food preparation. Smells good in here",
       "locationItems": [
         {
-          "itemName": "coffee"
+          "itemName": "Flamethrower"
+        },
+        {
+          "itemName": "Cereal"
+        },
+        {
+          "itemName": "Table"
+        },
+        {
+          "itemName": "Coffee"
         }
       ],
       "locationDirections": {
-        "north": "office",
-        "west": "bathroom"
+        "north": "Office",
+        "west": "Bathroom"
       }
     }
   },
   {
     "location": {
-      "locationName": "bathroom",
-      "locationDescription": "clean up in here",
+      "locationName": "Bathroom",
+      "locationDescription": "A room containing a toilet,a sink,a bathtub and a shower",
       "locationItems": [
         {
-          "itemName": "plunger"
+          "itemName": "Plunger"
         },
         {
-          "itemName": "toilet paper"
+          "itemName": "ToiletPaper"
+        },
+        {
+          "itemName": "Towel"
+        },
+        {
+          "itemName": "BrassKnuckles"
         }
       ],
       "locationDirections": {
-        "west": "bedroom",
-        "south": "kitchen"
+        "west": "Bedroom",
+        "south": "Kitchen"
       }
     }
   },
   {
     "location": {
-      "locationName": "office",
-      "locationDescription": "work in here",
+      "locationName": "LivingRoom",
+      "locationDescription": "A room for relaxing and socializing",
       "locationItems": [
         {
-          "itemName": "laptop"
+          "itemName": "TV"
         },
         {
-          "itemName": "letter opener"
+          "itemName": "Couch"
+        },
+        {
+          "itemName": "RazorBlade"
+        },
+        {
+          "itemName": "Fireplace"
         }
       ],
       "locationDirections": {
-        "west": "bedroom",
-        "south": "kitchen"
+        "west": "Bedroom",
+        "south": "Kitchen"
       }
     }
   }

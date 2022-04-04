@@ -1,16 +1,22 @@
+import java.util.List;
+
 public class Location implements java.io.Serializable{
 
     private int n, s, w, e;
     private String locationName;
     private String locationDescription;
+    private List<LocationItem> locationItems;
+    private List<LocationDirection> locationDirection;
 
     private String name;
     private String description;
     private ThingList things = new ThingList( );
 
-    public Location(String locationName, String locationDescription) {
+    public Location(String locationName, String locationDescription, List<LocationItem> locationItems, List<LocationDirection> locationDirection) {
         this.locationName = locationName;
         this.locationDescription = locationDescription;
+        this.locationItems = locationItems;
+        this.locationDirection = locationDirection;
     }
 
     public Location(String aName, String aDescription, int aN, int aS, int aW, int aE, ThingList tl) {
@@ -21,6 +27,7 @@ public class Location implements java.io.Serializable{
         this.s = aS;
         this.w = aW;
         this.e = aE;
+
     }
 
     public String getLocationName() {
@@ -78,6 +85,13 @@ public class Location implements java.io.Serializable{
         this.w = aW;
     }
 
+    public List<LocationItem> getLocationItems() {
+        return locationItems;
+    }
+    public List<LocationDirection> getLocationDirection() {
+        return locationDirection;
+    }
+
     public ThingList getThings() {
         return things;
     }
@@ -87,6 +101,4 @@ public class Location implements java.io.Serializable{
                 getName(), getDescription())
                 + "\nThings here:\n" + getThings().describeThings();
     }
-
-
 }
