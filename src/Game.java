@@ -4,6 +4,8 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
+import javax.sound.sampled.*;
+import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -211,7 +213,8 @@ public class Game implements java.io.Serializable {
         s =
                 "WHEN YOU ARE READY TO PLAY THE GAME PLEASE SELECT [y]?\n" +
                 "REMEMBER: AT ANY POINT YOU CAN PRESS [n] TO SEE QUIT\n" +
-                "REMEMBER: AT ANY POINT YOU CAN PRESS [x] TO SEE MENU OPTIONS";
+                "REMEMBER: AT ANY POINT YOU CAN PRESS [x] TO SEE MENU OPTIONS\n" +
+                "Type save or load to save game progress or load previous progress";
         showStr(s);
         look();
     }
@@ -408,12 +411,14 @@ public class Game implements java.io.Serializable {
                 "5. Add Game Commands\n" +
                 "6. Add Items\n" +
                 "7. Add Locations\n" +
-                "8. View Game introduction\n" +
+                "8. Start background music\n" +
+                "9. Stop background music\n" +
+                "10. View Game introduction\n" +
                 "";
         System.out.println(s);
     }
 
-    public String runCommand(String inputstr) throws IOException, ParseException {
+    public String runCommand(String inputstr) throws IOException, ParseException, UnsupportedAudioFileException, LineUnavailableException {
         List<String> wordlist;
         String s = "\n";
         String lowstr = inputstr.trim().toLowerCase();
@@ -454,10 +459,16 @@ public class Game implements java.io.Serializable {
                         AddLocations();
                         break;
                     case 8:
+                        playAudio();
+                        break;
+                    case 9:
+                        stopAudio();
+                        break;
+                    case 10:
                         showIntro();
                         break;
                     default:
-                        System.out.println("Please enter 1, 2, 3, 4, 5, 6, 7, or 8");
+                        System.out.println("Please enter 1, 2, 3, 4, 5, 6, 7, 8, 9, or 10");
                         break;
                 }
             } else {
@@ -655,6 +666,27 @@ public class Game implements java.io.Serializable {
             System.out.println("Invalid command. ");
         }
 
+    }
+
+    Clip clip;
+
+
+
+    public void playAudio() throws LineUnavailableException, IOException, UnsupportedAudioFileException {
+        File song = new File("bgmusic.wav");
+        AudioInputStream audioStream = AudioSystem.getAudioInputStream(song);
+        clip = AudioSystem.getClip();
+        clip.open(audioStream);
+        clip.start();
+        clip.flush();
+    }
+
+
+
+    public void stopAudio() throws LineUnavailableException, IOException, UnsupportedAudioFileException{
+        clip.stop();
+        clip.flush();
+        clip.close();
     }
 
 }

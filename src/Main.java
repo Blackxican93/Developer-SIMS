@@ -1,5 +1,7 @@
 import org.json.simple.parser.ParseException;
 
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
 import java.io.*;
 
 public class Main {
@@ -33,7 +35,7 @@ public class Main {
         }
     }
 
-    public static void main(String[] args) throws IOException, ParseException {
+    public static void main(String[] args) throws IOException, ParseException, UnsupportedAudioFileException, LineUnavailableException {
         BufferedReader in;
         String input;
         String output = "";
