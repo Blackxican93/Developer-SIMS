@@ -3,6 +3,7 @@ import org.json.simple.parser.ParseException;
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 import java.io.*;
+import java.util.Scanner;
 
 public class Main {
 
@@ -43,8 +44,15 @@ public class Main {
         in = new BufferedReader(new InputStreamReader(System.in));
         game.showIntro();
         do {
+            game.look();
+            game.detailedLook();
+            System.out.println("What would you like to do? ");
+            Scanner sc = new Scanner(System.in);
+            input = sc.nextLine();
+            game.runCommand(input);
+
             System.out.print("> ");
-            input = in.readLine();
+
             switch (input) {
                 case "save":
                     saveGame();
@@ -59,7 +67,7 @@ public class Main {
             if (!output.trim().isEmpty()) {
                 game.showStr(output);
             }
-        } while (!"q".equals(input));
+        } while (!"n".equals(input));
     }
 
 }

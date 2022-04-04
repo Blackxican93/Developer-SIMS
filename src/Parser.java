@@ -6,9 +6,24 @@ import java.util.Objects;
 public class Parser {
 
     static List<String> verbs = new ArrayList<>(Arrays.asList(
-            "go", "take", "drop", "look", "l", "i", "inventory"));
-    static List<String> nouns = new ArrayList<>(Arrays.asList("bed", "letter-opener",
-            "coffee", "plunger", "tv", "north", "south", "west", "east"));
+            "go", "take", "drop", "look", "inventory", "grasp", "fall", "glance", "sprint", "move",
+            "extract", "deposit", "survey", "race", "travel",
+            "draw", "set", "down", "scurry", "leave"));
+    static List<String> nouns = new ArrayList<>(Arrays.asList("NightStand", "KingBed",
+            "AlarmClock", "ToxicBomb", "Laptop", "LetterOpener", "Machete", "Printer","Flamethrower", "Cereal",
+            "Table", "Coffee", "Plunger", "ToiletPaper", "Towel", "BrassKnuckles", "TV", "Couch", "RazorBlade","Fireplace"));
+
+    //    static List<Item> nouns;
+//
+//    static {
+//        try {
+//            nouns = JsonHelper.jsonItems();
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        } catch (ParseException e) {
+//            e.printStackTrace();
+//        }
+//    }
     static List<String> directions = new ArrayList<>(Arrays.asList("north", "south", "west", "east"));
 
     static String processVerb(List<String> wordlist) {
@@ -19,12 +34,10 @@ public class Parser {
             msg = verb + " is not a known verb! ";
         } else {
             switch (verb) {
-                case "l":
                 case "look":
                     Main.game.look();
                     break;
                 case "inventory":
-                case "i":
                     Main.game.showInventory();
                     break;
                 case "go":

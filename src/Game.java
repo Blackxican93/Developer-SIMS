@@ -172,15 +172,60 @@ public class Game implements java.io.Serializable {
     }
 
     void look() {
-        showStr("You are in the " + getPlayer().getLocation().describe());
+        showStr("You are in the " + getPlayer().getLocation().getName() + ". You usually " + getPlayer().getLocation().getDescription());
     }
 
-    void showStr(String s) {
+    void detailedLook() {
+        Location currentRoom = player.getLocation();
+        String currentRoomString = currentRoom.getName();
+        switch (currentRoomString) {
+            case "Bedroom":
+                Location bedroom = locations.get(0);
+                List<LocationItem> bedroomLocationItems = bedroom.getLocationItems();
+                List<LocationDirection> locationDirections = bedroom.getLocationDirection();
+                StraightJson.showLocationItems(bedroomLocationItems, bedroom);
+                StraightJson.showLocationDirection(locationDirections, bedroom);
+                break;
+            case "Office":
+                Location office = locations.get(1);
+                List<LocationItem> officeLocationItems = office.getLocationItems();
+                List<LocationDirection> officeLocationDirections = office.getLocationDirection();
+                StraightJson.showLocationItems(officeLocationItems, office);
+                StraightJson.showLocationDirection(officeLocationDirections, office);
+                break;
+            case "Kitchen":
+                Location kitchen = locations.get(2);
+                List<LocationItem> kitchenLocationItems = kitchen.getLocationItems();
+                List<LocationDirection> kitchenLocationDirections = kitchen.getLocationDirection();
+                StraightJson.showLocationItems(kitchenLocationItems, kitchen);
+                StraightJson.showLocationDirection(kitchenLocationDirections, kitchen);
+                break;
+            case "Bathroom":
+                Location bathroom = locations.get(3);
+                List<LocationItem> bathroomLocationItems = bathroom.getLocationItems();
+                List<LocationDirection> bathroomLocationDirections = bathroom.getLocationDirection();
+                StraightJson.showLocationItems(bathroomLocationItems, bathroom);
+                StraightJson.showLocationDirection(bathroomLocationDirections, bathroom);
+                break;
+            case "LivingRoom":
+                Location livingRoom = locations.get(4);
+                List<LocationItem> livingRoomLocationItems = livingRoom.getLocationItems();
+                List<LocationDirection> livingRoomLocationDirections = livingRoom.getLocationDirection();
+                StraightJson.showLocationItems(livingRoomLocationItems, livingRoom);
+                StraightJson.showLocationDirection(livingRoomLocationDirections, livingRoom);
+                break;
+            default:
+                break;
+
+        }
+    }
+
+    static void showStr(String s) {
         System.out.println(s);
     }
 
     void showInventory() {
-        showStr("You have " + getPlayer().getThings().describeThings());
+        showStr("You are in the " + getPlayer().getLocation().getName() + ". You usually " + getPlayer().getLocation().getDescription());
     }
 
 
@@ -211,12 +256,21 @@ public class Game implements java.io.Serializable {
         System.out.println(TextImages.getIntroArt());
         String s = "";
         s =
-                "WHEN YOU ARE READY TO PLAY THE GAME PLEASE SELECT [y]?\n" +
-                "REMEMBER: AT ANY POINT YOU CAN PRESS [n] TO SEE QUIT\n" +
-                "REMEMBER: AT ANY POINT YOU CAN PRESS [x] TO SEE MENU OPTIONS\n" +
-                "Type save or load to save game progress or load previous progress";
+                "SELECT [y] TO ENTER THE GAME?\n" +
+                "SELECT [n] TO QUIT THE GAME \n" +
+                "SELECT [x] TO SEE MENU OPTIONS\n" +
+                        "Or ENTER A COMMAND\n";
         showStr(s);
-        look();
+    }
+
+    static void shortMenu() {
+        String s = "";
+        s = "\n" +
+                "SELECT [n] TO QUIT THE GAME \n" +
+                "SELECT [x] TO SEE MENU OPTIONS\n" +
+                "Or ENTER A COMMAND";
+
+        showStr(s);
     }
     void InterviewQuestions() throws IOException, ParseException {
         Scanner myObj = new Scanner(System.in);
@@ -401,6 +455,7 @@ public class Game implements java.io.Serializable {
             System.out.println("Better luck next time! Unfortunately you did not pass the mandatory requirement. Oh ya...and you died by the hands of the Java monster.");
         }
     }
+
     private void showMenuToPlayer() {
         String s;
         s = "Choose your action: \n"+
@@ -413,7 +468,11 @@ public class Game implements java.io.Serializable {
                 "7. Add Locations\n" +
                 "8. Start background music\n" +
                 "9. Stop background music\n" +
-                "10. View Game introduction\n" +
+                "10. Get information about a given room\n" +
+                "11. Get information about a given item\n" +
+                "12. View Game introduction\n" +
+
+
                 "";
         System.out.println(s);
     }
@@ -430,7 +489,20 @@ public class Game implements java.io.Serializable {
                 System.out.println("Enter your name: ");
                 String name = sc.nextLine();
                 player.setName(name);
-                System.out.println("          " + player.getName() + ", Welcome to House of Maddness ");
+                System.out.println("          " + player.getName() + ", Welcome to House of Maddness. \n" +
+                        "You have to clean your house before your children ge thome. there are dnagerous \n" +
+                        "items scattered around your house that you must collect. \n" +
+                        "================================================================================\n" +
+                        "You are current locastion is below. Please Choose a direction to begin collecting the dangerous items. \n" +
+                        "for example ... 'go north' \n");
+
+                detailedLook();
+                System.out.println("What would you like to do? ");
+                shortMenu();
+                String response = sc.nextLine();
+                wordlist = wordList(response);
+                s = parseCommand(wordlist);
+
             } else if( lowstr.equals("x")) {
                 showMenuToPlayer();
                 Scanner sc = new Scanner(System.in);
@@ -465,10 +537,37 @@ public class Game implements java.io.Serializable {
                         stopAudio();
                         break;
                     case 10:
+                        System.out.println("Which location you want to see in detail?");
+                        String locationName = sc.nextLine();
+                        Location location = StraightJson.getLocation(locations, locationName);
+                        if (location == null) {
+                            System.out.println(locationName + " is not here.");
+                        } else {
+                            System.out.println(locationName + " details:");
+                            System.out.println("Description: " + location.getLocationDescription());
+                            StraightJson.showLocationItems(location.getLocationItems(), location);
+                            StraightJson.showLocationDirection(location.getLocationDirection(), location);
+                        }
+                        System.out.println();
+                        break;
+                    case 11:
+                        System.out.println("Which item you want to see in detail?");
+                        String itemName = sc.nextLine();
+                        Item item = StraightJson.getItem(items, itemName);
+                        if (item == null) {
+                            System.out.println(itemName + " is not here.");
+                        } else {
+                            System.out.println(item);
+                        }
+                        System.out.println();
+                        break;
+                    case 12:
                         showIntro();
                         break;
                     default:
-                        System.out.println("Please enter 1, 2, 3, 4, 5, 6, 7, 8, 9, or 10");
+                        System.out.println("Please enter 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, or 12");
+
+                        showIntro();
                         break;
                 }
             } else {
@@ -669,8 +768,6 @@ public class Game implements java.io.Serializable {
     }
 
     Clip clip;
-
-
 
     public void playAudio() throws LineUnavailableException, IOException, UnsupportedAudioFileException {
         File song = new File("bgmusic.wav");
