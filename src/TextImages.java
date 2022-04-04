@@ -1,4 +1,4 @@
-public class TextImages {
+public class TextImages implements java.io.Serializable{
 
     public static String getIntroArt() {
         String introArt = """
@@ -15,8 +15,8 @@ public class TextImages {
                     ^^^^^^^^^^^^^^^ === ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
                  You are an aspiring Software Developer. You just landed an interview
                  with Amazon. Despite any unexpected encounters you may face, you MUST
-                 complete the given assessment in time.
-                 
+                 complete the interview questions. If you pass the interview, you're hired!
+                 If you don't pass...well....you'll see.   
                 ======================================================================
                 """;
         return introArt;

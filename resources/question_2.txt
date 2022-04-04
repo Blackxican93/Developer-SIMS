@@ -1,0 +1,5 @@
+A java keyword used in a class definition to specify that a class is not to be instantiated, but rather inherited.
+array
+abstract
+casting
+double

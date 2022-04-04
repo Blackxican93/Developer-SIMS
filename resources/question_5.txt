@@ -1,0 +1,5 @@
+Using one identifier to refer to multiple items in the same scope.
+overdoing
+overloading
+overriding
+package

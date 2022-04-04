@@ -10,7 +10,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
-public class JsonHelper {
+public class JsonHelper implements java.io.Serializable{
 
     public List<Location> readLocationsFromJson() throws IOException, ParseException {
 
@@ -47,7 +47,9 @@ public class JsonHelper {
                 String val = (String) locationDirectionsJsonObj.get(key);
                 locationDirections.add(new LocationDirection(key.trim(), val.trim()));
             }
+//            locations.add(new Location(locationName, locationDescription, locationItems, locationDirections));
             locations.add(new Location(locationName, locationDescription, locationItems, locationDirections));
+
         }
 
         return locations;
@@ -95,4 +97,33 @@ public class JsonHelper {
 
         return items;
     }
+
+    public static List<Item> jsonItems() throws IOException, ParseException {
+
+        List<Item> items = new ArrayList<>();
+
+        JSONParser parser = new JSONParser();
+
+        JSONArray a = (JSONArray) parser.parse(new FileReader("item.json"));
+
+        for (int i = 0; i < a.size(); i++) {
+            JSONObject val = (JSONObject) a.get(i);
+            for (Iterator iterator = val.keySet().iterator(); iterator.hasNext(); ) {
+                String key = (String) iterator.next();
+
+                String o = val.get(key).toString();
+                int startIndex = o.indexOf(":");
+                int endIndex = o.indexOf(",");
+                String itemName = o.substring(startIndex + 2, endIndex - 1);
+
+
+                items.add(new Item(itemName));
+            }
+        }
+
+        return items;
+    }
+
+
 }
+

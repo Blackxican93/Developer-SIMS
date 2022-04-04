@@ -1,16 +1,19 @@
-public class Item {
+public class Item implements java.io.Serializable{
 
     private String itemName;
     private String itemDescription;
-    private String itemAttribute;
+//    private String itemAttribute;
     private String itemLocation;
 
     @SuppressWarnings("unchecked")
-    public Item(String itemName, String itemDescription, String itemAttribute, String itemLocation) {
+    public Item (String itemName, String itemDescription, String itemAttribute, String itemLocation) {
         this.itemName = itemName;
         this.itemDescription = itemDescription;
-        this.itemAttribute = itemAttribute;
+//        this.itemAttribute = itemAttribute;
         this.itemLocation = itemLocation;
+    }
+
+    public Item(String itemName) {
     }
 
 
@@ -30,13 +33,13 @@ public class Item {
         this.itemDescription = itemDescription;
     }
 
-    public String getItemAttribute() {
-        return itemAttribute;
-    }
+//    public String getItemAttribute() {
+//        return itemAttribute;
+//    }
 
-    public void setItemAttribute(String itemAttribute) {
-        this.itemAttribute = itemAttribute;
-    }
+//    public void setItemAttribute(String itemAttribute) {
+//        this.itemAttribute = itemAttribute;
+//    }
 
     public String getItemLocation() {
         return itemLocation;
@@ -49,8 +52,7 @@ public class Item {
     @Override
     public String toString() {
         return  "Name='" + itemName + '\'' +
-                ", Description='" + itemDescription + '\'' +
-                ", Attribute='" + itemAttribute + '\'' +
+                ", Description='" + itemDescription +
                 ", Location='" + itemLocation + '\'';
     }
 }

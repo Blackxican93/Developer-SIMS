@@ -1,47 +1,162 @@
 [
   {
     "item": {
-      "itemName": "laptop",
-      "itemDescription": "work laptop",
-      "itemLocation": "office",
-      "itemAttribute": "perform work tasks",
-      "itemActionGo": [
-        {
-          "action": "go"
-        }
-      ]
+      "itemName": "NightStand",
+      "itemDescription": "Night stand next to bed",
+      "itemLocation": "Bedroom",
+      "itemAttribute": ""
     }
   },
   {
     "item": {
-      "itemName": "letter opened",
-      "itemDescription": "small knife that opens envelopes",
-      "itemLocation": "office",
-      "itemAttribute": " ... "
+      "itemName": "KingBed",
+      "itemDescription": "Large bed",
+      "itemLocation": "Bedroom",
+      "itemAttribute": ""
     }
   },
   {
     "item": {
-      "itemName": "coffee",
-      "itemDescription": "morning coffee",
-      "itemLocation": "kitchen",
-      "itemAttribute": "drink coffee"
+      "itemName": "AlarmClock",
+      "itemDescription": "Clock that is designed to alert an individual or group of individuals at a specified time ",
+      "itemLocation": "Bedroom",
+      "itemAttribute": ""
     }
   },
   {
     "item": {
-      "itemName": "bat",
-      "itemDescription": "baseball bat",
-      "itemLocation": "bedroom",
-      "itemAttribute": "protection against intruders"
+      "itemName": "ToxicBomb",
+      "itemDescription": "A toxic bomb",
+      "itemLocation": "Bedroom",
+      "itemAttribute": ""
     }
   },
   {
     "item": {
-      "itemName": "bed",
-      "itemDescription": "king bed",
-      "itemLocation": "bedroom",
-      "itemAttribute": "go to sleep"
+      "itemName": "Laptop",
+      "itemDescription": "Used to perform work tasks",
+      "itemLocation": "Office",
+      "itemAttribute": ""
+    }
+  },
+  {
+    "item": {
+      "itemName": "LetterOpener",
+      "itemDescription": "Small knife that opens envelopes",
+      "itemLocation": "Office",
+      "itemAttribute": ""
+    }
+  },
+  {
+    "item": {
+      "itemName": "Machete",
+      "itemDescription": "Big Knife",
+      "itemLocation": "Office",
+      "itemAttribute": ""
+    }
+  },
+  {
+    "item": {
+      "itemName": "Printer",
+      "itemDescription": "Prints paper documents",
+      "itemLocation": "Office",
+      "itemAttribute": ""
+    }
+  },
+  {
+    "item": {
+      "itemName": "Flamethrower",
+      "itemDescription": "Dangerous weapon",
+      "itemLocation": "Kitchen",
+      "itemAttribute": ""
+    }
+  },
+  {
+    "item": {
+      "itemName": "Cereal",
+      "itemDescription": "Breakfast food",
+      "itemLocation": "Kitchen",
+      "itemAttribute": ""
+    }
+  },
+  {
+    "item": {
+      "itemName": "Table",
+      "itemDescription": "Table for eating meals",
+      "itemLocation": "Kitchen",
+      "itemAttribute": ""
+    }
+  },
+  {
+    "item": {
+      "itemName": "Coffee",
+      "itemDescription": "Morning drink",
+      "itemLocation": "Kitchen",
+      "itemAttribute": ""
+    }
+  },
+  {
+    "item": {
+      "itemName": "Plunger",
+      "itemDescription": "Unclog toilet",
+      "itemLocation": "Bathroom",
+      "itemAttribute": ""
+    }
+  },
+  {
+    "item": {
+      "itemName": "ToiletPaper",
+      "itemDescription": "Toilet tissue",
+      "itemLocation": "Bathroom",
+      "itemAttribute": ""
+    }
+  },
+  {
+    "item": {
+      "itemName": "Towel",
+      "itemDescription": "Dry off body after shower",
+      "itemLocation": "Bathroom",
+      "itemAttribute": ""
+    }
+  },
+  {
+    "item": {
+      "itemName": "BrassKnuckles",
+      "itemDescription": "Dangerous weapon",
+      "itemLocation": "Bathroom ",
+      "itemAttribute": ""
+    }
+  },
+  {
+    "item": {
+      "itemName": "TV",
+      "itemDescription": "Watch favorite shows",
+      "itemLocation": "LivingRoom",
+      "itemAttribute": ""
+    }
+  },
+  {
+    "item": {
+      "itemName": "Couch",
+      "itemDescription": "Comfortable couch",
+      "itemLocation": "LivingRoom",
+      "itemAttribute": ""
+    }
+  },
+  {
+    "item": {
+      "itemName": "RazorBlade",
+      "itemDescription": "Dangerous weapon",
+      "itemLocation": "LivingRoom",
+      "itemAttribute": ""
+    }
+  },
+  {
+    "item": {
+      "itemName": "Fireplace",
+      "itemDescription": "Keeps house warm",
+      "itemLocation": "LivingRoom ",
+      "itemAttribute": ""
     }
   }
 ]
