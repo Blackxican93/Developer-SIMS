@@ -1,6 +1,12 @@
+import minigame.QUESTION;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
-import java.io.*;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -202,14 +208,195 @@ public class Game implements java.io.Serializable {
     void showIntro() {
         System.out.println(TextImages.getIntroArt());
         String s = "";
-        s = "You are an aspiring Software Developer. You just landed an interview\n"+
-                "with Amazon. Despite any unexpected encounters you may face, you MUST\n" +
-                "complete the given assessment in time.\n" +
+        s =
                 "WHEN YOU ARE READY TO PLAY THE GAME PLEASE SELECT [y]?\n" +
                 "REMEMBER: AT ANY POINT YOU CAN PRESS [n] TO SEE QUIT\n" +
                 "REMEMBER: AT ANY POINT YOU CAN PRESS [x] TO SEE MENU OPTIONS";
         showStr(s);
         look();
+    }
+    void InterviewQuestions() throws IOException, ParseException {
+        Scanner myObj = new Scanner(System.in);
+        String answer;
+
+        JSONParser parser = new JSONParser();
+        JSONArray jsonArray = (JSONArray) parser.parse(new FileReader("Questions.json"));
+
+        System.out.println("Congratulations on making the first step to becoming an Amazon Software Developer! You will be prompted with 6 multiple answer questions on Java.");
+        System.out.println("Good luck and avoid any interruptions! ");
+        System.out.println("Plot Twist! ");
+        System.out.println("____________");
+        System.out.println("There is a Java monster named Gosling lurking. He does not like incorrect answers on Java and demands perfection. ");
+        System.out.println("You need a perfect score to pass the interview. Oh and....the monster will kill you if you don't get every question right.");
+        System.out.println("___________________________________________________________________________________________________________________________");
+        Integer scoreCount = 0;
+
+        for (Object o : jsonArray) {
+            JSONObject question = (JSONObject) o;
+            //Q1
+            String Q1 = (String) question.get("Q1");
+            String A1 = (String) question.get("A1");
+            String B1 = (String) question.get("B1");
+            String C1 = (String) question.get("C1");
+            String D1 = (String) question.get("D1");
+            System.out.println("Q1: " + Q1);
+            System.out.println("A: " + A1);
+            System.out.println("B: " + B1);
+            System.out.println("C: " + C1);
+            System.out.println("D: " + D1);
+
+            //Q1 Prompt
+
+            System.out.println("Enter A, B, C, or D ");
+            answer = myObj.nextLine();
+
+            System.out.println("You've entered: " + answer);
+
+            if (answer.equals("A")) {
+                scoreCount += 1;
+                System.out.println("Correct! You now have " + scoreCount + "points");
+            }
+            else {
+                System.out.println("Wrong answer Yo! The Java monster is getting closer! Keep going, maybe he'll let you live. ");
+            }
+
+            //Q2
+            String Q2 = (String) question.get("Q2");
+            String A2 = (String) question.get("A2");
+            String B2 = (String) question.get("B2");
+            String C2 = (String) question.get("C2");
+            String D2 = (String) question.get("D2");
+            System.out.println("Q2: " + Q2);
+            System.out.println("A: " + A2);
+            System.out.println("B: " + B2);
+            System.out.println("C: " + C2);
+            System.out.println("D: " + D2);
+
+            //Q2 Prompt
+            System.out.println("Enter A, B, C, or D ");
+            answer = myObj.nextLine();
+
+            System.out.println("You've entered: " + answer);
+
+            if (answer.equals("B")) {
+                scoreCount += 1;
+                System.out.println("Correct! You now have " + scoreCount + "points");
+            }
+            else {
+                System.out.println("Wrong answer Yo! The Java monster is getting closer! Keep going, maybe he'll let you live. ");
+            }
+
+            //Q3
+            String Q3 = (String) question.get("Q3");
+            String A3 = (String) question.get("A3");
+            String B3 = (String) question.get("B3");
+            String C3 = (String) question.get("C3");
+            String D3 = (String) question.get("D3");
+            System.out.println("Q3: " + Q3);
+            System.out.println("A: " + A3);
+            System.out.println("B: " + B3);
+            System.out.println("C: " + C3);
+            System.out.println("D: " + D3);
+
+            //Q3 Prompt
+            System.out.println("Enter A, B, C, or D ");
+            answer = myObj.nextLine();
+
+            System.out.println("You've entered: " + answer);
+
+            if (answer.equals("B")) {
+                scoreCount += 1;
+                System.out.println("Correct! You now have " + scoreCount + "points");
+            }
+            else {
+                System.out.println("Wrong answer Yo! The Java monster is getting closer! Keep going, maybe he'll let you live. ");
+            }
+
+            //Q4
+            String Q4 = (String) question.get("Q4");
+            String A4 = (String) question.get("A4");
+            String B4 = (String) question.get("B4");
+            String C4 = (String) question.get("C4");
+            String D4 = (String) question.get("D4");
+            System.out.println("Q4: " + Q4);
+            System.out.println("A: " + A4);
+            System.out.println("B: " + B4);
+            System.out.println("C: " + C4);
+            System.out.println("D: " + D4);
+
+            //Q4 Prompt
+            System.out.println("Enter A, B, C, or D ");
+            answer = myObj.nextLine();
+
+            System.out.println("You've entered: " + answer);
+
+            if (answer.equals("B")) {
+                scoreCount += 1;
+                System.out.println("Correct! You now have " + scoreCount + "points");
+            }
+            else {
+                System.out.println("Wrong answer Yo! The Java monster is getting closer! Keep going, maybe he'll let you live. ");
+            }
+
+            //Q5
+            String Q5 = (String) question.get("Q5");
+            String A5 = (String) question.get("A5");
+            String B5 = (String) question.get("B5");
+            String C5 = (String) question.get("C5");
+            String D5 = (String) question.get("D5");
+            System.out.println("Q5: " + Q5);
+            System.out.println("A: " + A5);
+            System.out.println("B: " + B5);
+            System.out.println("C: " + C5);
+            System.out.println("D: " + D5);
+
+            //Q5 Prompt
+            System.out.println("Enter A, B, C, or D ");
+            answer = myObj.nextLine();
+
+            System.out.println("You've entered: " + answer);
+
+            if (answer.equals("A")) {
+                scoreCount += 1;
+                System.out.println("Correct! You now have " + scoreCount + "points");
+            }
+            else {
+                System.out.println("Wrong answer Yo! The Java monster is getting closer! Keep going, maybe he'll let you live. ");
+            }
+
+            //Q6
+            String Q6 = (String) question.get("Q6");
+            String A6 = (String) question.get("A6");
+            String B6 = (String) question.get("B6");
+            String C6 = (String) question.get("C6");
+            String D6 = (String) question.get("D6");
+            System.out.println("Q6: " + Q6);
+            System.out.println("A: " + A6);
+            System.out.println("B: " + B6);
+            System.out.println("C: " + C6);
+            System.out.println("D: " + D6);
+
+            //Q6 Prompt
+            System.out.println("Enter A, B, C, or D ");
+            answer = myObj.nextLine();
+
+            System.out.println("You've entered: " + answer);
+
+            if (answer.equals("A")) {
+                scoreCount += 1;
+                System.out.println("Correct! You now have " + scoreCount + "points");
+            }
+            else {
+                System.out.println("Wrong answer Yo! The Java monster is getting closer! Keep going, maybe he'll let you live. ");
+            }
+        }
+
+        if(scoreCount == 6){
+            System.out.println("Congratulations on getting a perfect score! Your Amazon recruiter Kevin Greene will be reaching out to you shortly. Pending any paperwork issues, welcome to the Amazon Team! ");
+    }
+        else {
+            System.out.println("Better luck next time! Unfortunately you did not pass the mandatory requirement. Oh ya...and you died by the hands of the Java monster.");
+        }
     }
     private void showMenuToPlayer() {
         String s;
@@ -217,12 +404,16 @@ public class Game implements java.io.Serializable {
                 "1. View verbs\n" +
                 "2. View nouns\n" +
                 "3. View directions\n" +
-                "4. View Game introduction\n" +
+                "4. Interview Questions\n" +
+                "5. Add Game Commands\n" +
+                "6. Add Items\n" +
+                "7. Add Locations\n" +
+                "8. View Game introduction\n" +
                 "";
         System.out.println(s);
     }
 
-    public String runCommand(String inputstr) {
+    public String runCommand(String inputstr) throws IOException, ParseException {
         List<String> wordlist;
         String s = "\n";
         String lowstr = inputstr.trim().toLowerCase();
@@ -251,10 +442,22 @@ public class Game implements java.io.Serializable {
                         System.out.println(Parser.directions);
                         break;
                     case 4:
+                        InterviewQuestions();
+                        break;
+                    case 5:
+                        AddGameCommands();
+                        break;
+                    case 6:
+                        AddItems();
+                        break;
+                    case 7:
+                        AddLocations();
+                        break;
+                    case 8:
                         showIntro();
                         break;
                     default:
-                        System.out.println("Please enter 1, 2, 3");
+                        System.out.println("Please enter 1, 2, 3, 4, 5, 6, 7, or 8");
                         break;
                 }
             } else {
@@ -265,5 +468,193 @@ public class Game implements java.io.Serializable {
         return s;
     }
 
+    void AddGameCommands () {
+        String input = "";
+        String commandNameOption = "";
+        String commandDescriptionOption = "";
+        String commandExampleOption = "";
+
+        JSONParser jsonParser = new JSONParser();
+
+        JSONObject addGameCommands = new JSONObject();
+        Scanner in = new Scanner(System.in);
+        System.out.println("Would you like to add a command to the game? Type Y or N ");
+
+        input = in.nextLine();
+        System.out.println("You have entered: " + input);
+
+        if (input.equals("Y")) {
+            try {
+                Object obj = jsonParser.parse(new FileReader("gameCommands.json"));
+                JSONArray jsonArray = (JSONArray) obj;
+
+                System.out.println(jsonArray);
+
+
+                System.out.println("You have the option of creating a command. Simply type in your command name using one word. ");
+                commandNameOption = in.nextLine();
+                System.out.println("You have entered: " + commandNameOption);
+                addGameCommands.put("commandName", commandNameOption);
+
+                System.out.println("You have the option of adding in a command description. Simply type in your command description phrase. ");
+                commandDescriptionOption = in.nextLine();
+                System.out.println("You have entered: " + commandDescriptionOption);
+                addGameCommands.put("commandDescription", commandDescriptionOption);
+
+                System.out.println("You have the option of adding in a command example. Simply type in your command example. ");
+                commandExampleOption = in.nextLine();
+                System.out.println("You have entered: " + commandExampleOption);
+                addGameCommands.put("commandExample", commandExampleOption);
+
+
+                jsonArray.add(addGameCommands);
+                System.out.println("Your options have been added to the list ");
+                System.out.println(jsonArray);
+
+                FileWriter file = new FileWriter("gameCommands.json");
+                file.write(jsonArray.toJSONString());
+                file.flush();
+                file.close();
+
+            } catch (ParseException | IOException e) {
+                e.printStackTrace();
+            }
+
+        } else if (input.equals("N")) {
+            System.out.println("No additions were made. ");
+        } else {
+            System.out.println("Invalid command. ");
+        }
+    }
+
+    void AddItems () {
+        String input = "";
+        String itemNameOption = "";
+        String itemDescriptionOption = "";
+        String itemAttributeOption = "";
+        String itemLocationOption = "";
+
+        JSONParser jsonParser = new JSONParser();
+
+
+        JSONObject addItems = new JSONObject();
+        Scanner in = new Scanner(System.in);
+        System.out.println("Would you like to add an item to the game? Type Y or N ");
+
+        input = in.nextLine();
+        System.out.println("You have entered: " + input);
+
+        if (input.equals("Y")) {
+            try {
+                Object obj = jsonParser.parse(new FileReader("item.json"));
+                JSONArray jsonArray = (JSONArray) obj;
+
+                System.out.println(jsonArray);
+
+                System.out.println("You have the option of creating an item. Simply type in your command name using one word. ");
+                itemNameOption = in.nextLine();
+                System.out.println("You have entered: " + itemNameOption);
+                addItems.put("itemName", itemNameOption);
+
+                System.out.println("You have the option of adding in an item description. Simply type in your command description phrase. ");
+                itemDescriptionOption = in.nextLine();
+                System.out.println("You have entered: " + itemDescriptionOption);
+                addItems.put("itemDescription", itemDescriptionOption);
+
+                System.out.println("You have the option of adding in an item attribute. Simply type in your command example. ");
+                itemAttributeOption = in.nextLine();
+                System.out.println("You have entered: " + itemAttributeOption);
+                addItems.put("itemAttribute", itemAttributeOption);
+
+                System.out.println("You have the option of adding in an item location. Simply type in your command example. ");
+                itemLocationOption = in.nextLine();
+                System.out.println("You have entered: " + itemLocationOption);
+                addItems.put("itemLocation", itemLocationOption);
+
+                jsonArray.add(addItems);
+                System.out.println("Your options have been added to the list ");
+                System.out.println(jsonArray);
+
+                FileWriter file = new FileWriter("item.json");
+                file.write(jsonArray.toJSONString());
+                file.flush();
+                file.close();
+
+            } catch(ParseException | IOException e){
+                e.printStackTrace();
+            }
+
+        }
+        else if (input.equals("N")) {
+            System.out.println("No additions were made. ");
+        } else {
+            System.out.println("Invalid command. ");
+        }
+    }
+
+    void AddLocations(){
+        String input = "";
+        String locationNameOption = "";
+        String locationDescriptionOption = "";
+        String locationItemsOption = "";
+        String locationDirectionsOption = "";
+
+        JSONParser jsonParser = new JSONParser();
+
+        JSONObject addLocation = new JSONObject();
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Would you like to add a location to the game? Type Y or N ");
+
+        input = sc.nextLine();
+        System.out.println("You have entered: " + input);
+
+        if (input.equals("Y")) {
+            try {
+                Object obj = jsonParser.parse(new FileReader("location.json"));
+                JSONArray jsonArray = (JSONArray)obj;
+
+                System.out.println(jsonArray);
+
+
+                System.out.println("You have the option of creating a location inside of the house. Simply type in your location name using one word. ");
+                locationNameOption = sc.nextLine();
+                System.out.println("You have entered: " + locationNameOption);
+                addLocation.put("locationName", locationNameOption);
+
+                System.out.println("You have the option of creating a location direction inside of the house. Simply type in your location direction. ");
+                locationDirectionsOption = sc.nextLine();
+                System.out.println("You have entered: " + locationDirectionsOption);
+                addLocation.put("locationDirections", locationDirectionsOption);
+
+                System.out.println("You have the option of creating a location description. Simply type in your location description. ");
+                locationDescriptionOption = sc.nextLine();
+                System.out.println("You have entered: " + locationDescriptionOption);
+                addLocation.put("locationDescription", locationDescriptionOption);
+
+                System.out.println("You have the option of creating a location item. Simply type in your location item. ");
+                locationItemsOption = sc.nextLine();
+                System.out.println("You have entered: " + locationItemsOption);
+                addLocation.put("locationItems", locationItemsOption);
+
+
+                jsonArray.add(addLocation);
+                System.out.println("Your options have been added to the list ");
+                System.out.println(jsonArray);
+
+                FileWriter file = new FileWriter("location.json");
+                file.write(jsonArray.toJSONString());
+                file.flush();
+                file.close();
+
+            } catch (ParseException | IOException e) {
+                e.printStackTrace();
+            }
+        } else if (input.equals("N")) {
+            System.out.println("No additions were made. ");
+        } else {
+            System.out.println("Invalid command. ");
+        }
+
+    }
 
 }
